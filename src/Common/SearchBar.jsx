@@ -44,7 +44,7 @@ const SearchBar = () => {
           <input
             type="text"
             placeholder="Search"
-            className="w-[21.5rem] md:w-[25rem] lg:w-[40rem] py-1 px-2 md:py-2 md:px-4 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+            className="w-[22rem] md:w-[25rem] lg:w-[40rem] py-1 px-2 md:py-2 md:px-4 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
           <button className='absolute right-1 bg-blue-500 hover:bg-blue-600 text-white py-0.5 px-2 md:py-1.5 md:px-4  rounded-md cursor-pointer'>
             <HiMagnifyingGlass className="h-5 w-5" />
