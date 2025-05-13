@@ -45,6 +45,12 @@
     }
 }
 
+@layer components {
+    .nav-link {
+        @apply text-white hover:text-yellow-400/95 transition-all duration-300;
+    }
+}
+
 @layer utilities {
     .container {
         @apply  max-w-screen py-2 md:py-4 px-4 sm:px-6 md:px-8;
