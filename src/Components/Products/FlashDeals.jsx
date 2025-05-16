@@ -3,7 +3,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => {
     return (
-        <div className="w-[10.5rem] md:w-56 lg:w-[17.8rem] h-auto border-2 border-gray-200 rounded-md">
+        <div className="w-[10.5rem] md:w-56 lg:w-[17.8rem] h-auto border-2 border-gray-200 hover:border-blue-200 rounded-md shadow-md hover:shadow-blue-300 hover:shadow-2xl overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="flex flex-col items-center pt-4 px-2">
                 {/* Image */}
                 <div>
@@ -11,7 +11,7 @@ const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => 
                 </div>
 
                 {/* Countdown */}
-                <div className="w-full flex items-center gap-2 bg-yellow-400/95 text-white text-xs md:text-base rounded-full py-1 px-4 md:px-5 lg:px-8 mt-4">
+                <div className="w-full md:w-auto flex items-center gap-2 bg-yellow-400/95 text-white text-xs md:text-base rounded-full py-1 px-4 md:px-5 lg:px-8 mt-4">
                     <span className="flex flex-col">
                         <span className="font-medium">00</span>
                         <span className="text-[0.5rem] md:text-xs -mt-[0.1rem] md:-mt-1">Day</span>
@@ -42,7 +42,7 @@ const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => 
                     </h1>
                 </div>
                 {/* Product Title */}
-                <div className="h-13 md:h-24">
+                <div className="h-13">
                     <h1 className="text-xs md:text-base font-semibold text-gray-500">
                         {title}
                     </h1>
