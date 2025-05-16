@@ -49,6 +49,10 @@
     .nav-link {
         @apply text-white hover:text-yellow-400/95 transition-all duration-300;
     }
+
+    .brand {
+        @apply w-16 text-black/50 hover:text-white transition-all duration-300 cursor-pointer;
+    }
 }
 
 @layer utilities {

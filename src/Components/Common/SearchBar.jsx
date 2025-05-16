@@ -1,5 +1,5 @@
 import { HiMagnifyingGlass, HiOutlineHeart, HiOutlineShoppingBag, HiOutlineUser } from 'react-icons/hi2';
-import Logo from '../assets/logo.png';
+import Logo from '../../assets/logo.png';
 
 const SearchBar = () => {
   return (

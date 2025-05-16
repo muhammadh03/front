@@ -1,4 +1,4 @@
-import React from 'react'
+import { Outlet } from 'react-router-dom';
 import Header from '../Common/Header';
 
 const UserLayout = () => {
@@ -8,6 +8,9 @@ const UserLayout = () => {
       <Header />
 
       {/* Main */}
+      <main>
+        <Outlet />
+      </main>
 
       {/* Footer */}
     </>
