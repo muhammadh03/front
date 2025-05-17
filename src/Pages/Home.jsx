@@ -343,11 +343,10 @@ const Home = () => {
                         spaceBetween={15}
                         loop={true}
                         modules={[Navigation, Autoplay]}
-                        // navigation={true}
-                        // autoplay={{
-                        //     delay: 2000,
-                        //     disableOnInteraction: false
-                        // }}
+                        autoplay={{
+                            delay: 2000,
+                            disableOnInteraction: false
+                        }}
                         navigation={{
                             prevEl: ".custom-prev-btn",
                             nextEl: ".custom-next-btn",
