@@ -34,7 +34,7 @@ const DailyOffers = ({ brand, title, price, image, reviews }) => {
                     </div>
 
                     {/* Product Title */}
-                    <div className='h-14'>
+                    <div className='h-9'>
                         <h1 className="text-xs md:text-base font-semibold text-gray-700 line-clamp-2">
                             {title}
                         </h1>
