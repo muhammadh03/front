@@ -42,7 +42,7 @@ const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => 
                     </h1>
                 </div>
                 {/* Product Title */}
-                <div className="h-13">
+                <div className="h-14 md:h-20 lg:h-14">
                     <h1 className="text-xs md:text-base font-semibold text-gray-500">
                         {title}
                     </h1>
