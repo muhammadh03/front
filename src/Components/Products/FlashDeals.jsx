@@ -3,7 +3,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => {
     return (
-        <div className="w-[10.5rem] md:w-56 lg:w-[17.8rem] h-auto border-2 border-gray-200 hover:border-blue-200 rounded-md shadow-md hover:shadow-blue-300 hover:shadow-2xl overflow-hidden transform transition duration-300 hover:scale-105">
+        <div className="w-[10.5rem] md:w-56 lg:w-[17.4rem] h-auto border-2 border-gray-200 hover:border-blue-200 rounded-md shadow-md hover:shadow-blue-300 hover:shadow-2xl overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="flex flex-col items-center pt-4 px-2">
                 {/* Image */}
                 <div>
@@ -105,6 +105,16 @@ const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => 
                     <span className="text-xs font-semibold text-gray-600">
                         Free
                     </span>
+                </div>
+
+                {/* Product Button */}
+                <div className='w-full flex flex-col gap-2 mt-2'>
+                    <button className='w-full text-xs md:text-sm font-semibold text-white bg-blue-500 hover:bg-blue-600 px-2 py-1 rounded-md'>
+                        Buy Now
+                    </button>
+                    <button className='w-full text-xs md:text-sm font-semibold text-white bg-yellow-400 hover:bg-yellow-500 px-2 py-1 rounded-md'>
+                        Add To Cart
+                    </button>
                 </div>
             </div>
         </div>
