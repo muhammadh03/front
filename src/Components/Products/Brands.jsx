@@ -9,8 +9,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-
 // Brands SVG's
 import Nokia from "../../assets/brands/nokia.svg";
 import Samsung from "../../assets/brands/samsung.svg";

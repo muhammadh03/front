@@ -1,9 +1,7 @@
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { HiOutlineEye, HiOutlineHeart, HiOutlineScale } from 'react-icons/hi2';
 
-// import gamingConsole from "../../assets/products/gaming-console.png";
-
-const DailyOffers = ({ brand, title, price, image, reviews }) => {
+const TopReviewedProducts = ({ brand, title, price, image, reviews }) => {
     return (
         <div className="w-[9.5rem] md:w-[13.2rem] h-auto border-2 border-gray-200 hover:border-blue-200 rounded-md shadow-md hover:shadow-blue-300 hover:shadow-2xl overflow-hidden transform transition duration-300 hover:scale-105">
             <div className='p-4'>
@@ -79,4 +77,4 @@ const DailyOffers = ({ brand, title, price, image, reviews }) => {
     )
 }
 
-export default DailyOffers;
+export default TopReviewedProducts;

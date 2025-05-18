@@ -109,10 +109,10 @@ const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => 
 
                 {/* Product Button */}
                 <div className='w-full flex flex-col gap-2 mt-2'>
-                    <button className='w-full text-xs md:text-sm font-semibold text-white bg-blue-500 hover:bg-blue-600 px-2 py-1 rounded-md'>
+                    <button className='w-full text-xs md:text-sm font-semibold text-white bg-gray-300 hover:bg-blue-500 px-2 py-1 rounded-md'>
                         Buy Now
                     </button>
-                    <button className='w-full text-xs md:text-sm font-semibold text-white bg-yellow-400 hover:bg-yellow-500 px-2 py-1 rounded-md'>
+                    <button className='w-full text-xs md:text-sm font-semibold text-white bg-yellow-300 hover:bg-yellow-500 px-2 py-1 rounded-md'>
                         Add To Cart
                     </button>
                 </div>

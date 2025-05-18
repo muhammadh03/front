@@ -19,6 +19,10 @@ import Brands from '../Components/Products/Brands';
 import CategoryCard from '../Components/Products/CategoryCard';
 import FlashDeals from '../Components/Products/FlashDeals';
 import DailyOffers from '../Components/Products/DailyOffers';
+import MostSellingProducts from '../Components/Products/MostSellingProducts';
+import TopReviewedProducts from '../Components/Products/TopReviewedProducts';
+import TopBrands from '../Components/Products/TopBrands';
+
 
 import mobile from "../assets/products/mobile.png";
 import laptop from "../assets/products/laptop.png";
@@ -39,7 +43,19 @@ import graphicsCardOne from "../assets/products/Gainward-Graphics-Card.png";
 import graphicsCardTwo from "../assets/products/MSI-GeForce-Graphics-card.png";
 import smartWatchOne from "../assets/products/HUAWEI-Watch-GT-5-Pro-Smartwatch.png";
 import smartWatchTwo from "../assets/products/SAMSUNG-Galaxy-Watch-6-Classic-Smartwatch.png";
-import BestSellingProducts from '../Components/Products/BestSellingProducts';
+import mobileTwo from "../assets/products/mobile-2.png";
+import latopTwo from "../assets/products/laptop-2.png";
+
+
+import lenovo from "../assets/brands-svgs/lenovo-2.svg";
+import samsung from "../assets/brands-svgs/samsung-8.svg";
+import sony from "../assets/brands-svgs/sony-logo-1.svg";
+import dji from "../assets/brands-svgs/dji-3.svg";
+import vivo from "../assets/brands-svgs/vivo-2.svg";
+import bmd from "../assets/brands-svgs/blackmagic-design-logo.svg";
+import msi from "../assets/brands-svgs/micro-star-international-logo.svg";
+import asus from "../assets/brands-svgs/asus-4.svg";
+
 
 
 const categoryDetails = [
@@ -263,6 +279,50 @@ const dailyOffersDetails = [
     }
 ];
 
+
+const topBrandsDetails = [
+    {
+        brand: "Lenovo",
+        image: laptop,
+        logo: lenovo
+    },
+    {
+        brand: "Samsung",
+        image: mobile,
+        logo: samsung
+    },
+    {
+        brand: "Sony",
+        image: playstationFive,
+        logo: sony
+    },
+    {
+        brand: "DJI",
+        image: drone,
+        logo: dji
+    },
+    {
+        brand: "Vivo",
+        image: mobileTwo,
+        logo: vivo
+    },
+    {
+        brand: "Blackmagic Design",
+        image: camera,
+        logo: bmd
+    },
+    {
+        brand: "Micro-Star International",
+        image: graphicsCardTwo,
+        logo: msi
+    },
+    {
+        brand: "Asus",
+        image: latopTwo,
+        logo: asus
+    },
+];
+
 const Home = () => {
     return (
         <div>
@@ -326,7 +386,7 @@ const Home = () => {
             </div>
 
             {/* DAILY OFFERS */}
-            <div className='max-w-screen mx-auto py-2 md:py-4 px-4 sm:px-6 md:px-6 mt-6'>
+            <div className='max-w-screen mx-auto px-4 sm:px-6 md:px-6 mt-4'>
                 <div className='px-2'>
                     <h1 className='text-base md:text-2xl font-bold text-blue-600'>
                         Daily Offers
@@ -344,7 +404,7 @@ const Home = () => {
                         loop={true}
                         modules={[Navigation, Autoplay]}
                         autoplay={{
-                            delay: 2000,
+                            delay: 2500,
                             disableOnInteraction: false
                         }}
                         navigation={{
@@ -390,10 +450,10 @@ const Home = () => {
                         ))}
                     </Swiper>
                     <div className='absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full z-10'>
-                        <button className='custom-prev-btn bg-blue-400/50 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
+                        <button className='custom-prev-btn bg-blue-400/50 hover:bg-blue-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
                             <HiOutlineChevronLeft className='w-5 lg:w-6 h-5 lg:h-6' />
                         </button>
-                        <button className='custom-next-btn bg-blue-400/50 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
+                        <button className='custom-next-btn bg-blue-400/50 hover:bg-blue-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
                             <HiOutlineChevronRight className='w-5 lg:w-6 h-5 lg:h-6' />
                         </button>
                     </div>
@@ -412,8 +472,177 @@ const Home = () => {
                 </div>
             </div>
 
-            <div>
-                <BestSellingProducts />
+            {/* MOST SELLING PRODUCTS */}
+            <div className='max-w-screen mx-auto px-4 sm:px-6 md:px-6'>
+                <div className='px-2'>
+                    <h1 className='text-base md:text-2xl font-bold text-blue-600'>
+                        Most Selling Products
+                    </h1>
+                    <p className='text-xs md:text-base text-gray-500 '>
+                        Top-selling picks loved by thousands—shop favorites now
+                    </p>
+                </div>
+
+                <div className='relative'>
+                    <Swiper
+                        className="mySwiper"
+                        slidesPerView={5}
+                        spaceBetween={15}
+                        loop={true}
+                        modules={[Navigation, Autoplay]}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false
+                        }}
+                        navigation={{
+                            prevEl: ".custom-prev-btn",
+                            nextEl: ".custom-next-btn",
+                        }}
+                        breakpoints={{
+                            // When the screen width is >= 640px (small screens)
+                            375: {
+                                slidesPerView: 2, // Show 2 cards
+                                spaceBetween: 10,
+                            },
+                            // When the screen width is >= 768px (medium screens)
+                            768: {
+                                slidesPerView: 3, // Show 3 cards
+                                spaceBetween: 10,
+                            },
+                            // When the screen width is >= 1024px (large screens)
+                            1024: {
+                                slidesPerView: 4, // Show 4 cards
+                                spaceBetween: 20,
+                            },
+                            // When the screen width is >= 1280px
+                            1280: {
+                                slidesPerView: 5, // Show 5 cards
+                                spaceBetween: 20,
+                            },
+                        }}
+                    >
+                        {dailyOffersDetails.map(({ brand, title, price, image, rating, reviews }) => (
+                            <SwiperSlide key={title}>
+                                <div className='pt-6 pb-10 px-2'>
+                                    <MostSellingProducts
+                                        brand={brand}
+                                        title={title}
+                                        price={price}
+                                        image={image}
+                                        rating={rating}
+                                        reviews={reviews}
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <div className='absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full z-10'>
+                        <button className='custom-prev-btn bg-blue-400/50 hover:bg-blue-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
+                            <HiOutlineChevronLeft className='w-5 lg:w-6 h-5 lg:h-6' />
+                        </button>
+                        <button className='custom-next-btn bg-blue-400/50 hover:bg-blue-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
+                            <HiOutlineChevronRight className='w-5 lg:w-6 h-5 lg:h-6' />
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {/* TOP REVIEWED PRODUCTS */}
+            <div className='max-w-screen mx-auto px-4 sm:px-6 md:px-6'>
+                <div className='px-2'>
+                    <h1 className='text-base md:text-2xl font-bold text-blue-600'>
+                        Top Reviewed Products
+                    </h1>
+                    <p className='text-xs md:text-base text-gray-500 '>
+                        Top reviewed items with excellent customer feedback
+                    </p>
+                </div>
+
+                <div className='relative'>
+                    <Swiper
+                        className="mySwiper"
+                        slidesPerView={5}
+                        spaceBetween={15}
+                        loop={true}
+                        modules={[Navigation, Autoplay]}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false
+                        }}
+                        navigation={{
+                            prevEl: ".custom-prev-btn",
+                            nextEl: ".custom-next-btn",
+                        }}
+                        breakpoints={{
+                            // When the screen width is >= 640px (small screens)
+                            375: {
+                                slidesPerView: 2, // Show 2 cards
+                                spaceBetween: 10,
+                            },
+                            // When the screen width is >= 768px (medium screens)
+                            768: {
+                                slidesPerView: 3, // Show 3 cards
+                                spaceBetween: 10,
+                            },
+                            // When the screen width is >= 1024px (large screens)
+                            1024: {
+                                slidesPerView: 4, // Show 4 cards
+                                spaceBetween: 20,
+                            },
+                            // When the screen width is >= 1280px
+                            1280: {
+                                slidesPerView: 5, // Show 5 cards
+                                spaceBetween: 20,
+                            },
+                        }}
+                    >
+                        {dailyOffersDetails.map(({ brand, title, price, image, rating, reviews }) => (
+                            <SwiperSlide key={title}>
+                                <div className='pt-6 pb-10 px-2'>
+                                    <TopReviewedProducts
+                                        brand={brand}
+                                        title={title}
+                                        price={price}
+                                        image={image}
+                                        rating={rating}
+                                        reviews={reviews}
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <div className='absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full z-10'>
+                        <button className='custom-prev-btn bg-blue-400/50 hover:bg-blue-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
+                            <HiOutlineChevronLeft className='w-5 lg:w-6 h-5 lg:h-6' />
+                        </button>
+                        <button className='custom-next-btn bg-blue-400/50 hover:bg-blue-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
+                            <HiOutlineChevronRight className='w-5 lg:w-6 h-5 lg:h-6' />
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {/* TOP BRANDS */}
+            <div className='container mx-auto bg-blue-100/60'>
+                <div className='px-2'>
+                    <h1 className='text-base md:text-2xl font-bold text-blue-600'>
+                        Top Brands
+                    </h1>
+                    <p className='text-xs md:text-base text-gray-400 '>
+                        Premium brands chosen for performance and reliability
+                    </p>
+                </div>
+
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-6 lg:gap-8 px-2 py-4'>
+                    {topBrandsDetails.map(({ brand, image, logo }) => (
+                        <TopBrands
+                            key={brand}
+                            brand={brand}
+                            image={image}
+                            logo={logo}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     )
