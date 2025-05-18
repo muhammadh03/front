@@ -55,6 +55,7 @@ import vivo from "../assets/brands-svgs/vivo-2.svg";
 import bmd from "../assets/brands-svgs/blackmagic-design-logo.svg";
 import msi from "../assets/brands-svgs/micro-star-international-logo.svg";
 import asus from "../assets/brands-svgs/asus-4.svg";
+import RecentlyViewed from '../Components/Products/RecentlyViewed';
 
 
 
@@ -642,6 +643,72 @@ const Home = () => {
                             logo={logo}
                         />
                     ))}
+                </div>
+            </div>
+
+            {/* TOP BRANDS */}
+            <div className='container mx-auto bg-yellow-300'>
+                <div className='px-2'>
+                    <h1 className='text-base md:text-2xl font-bold text-gray-500'>
+                        Recently Viewed Products
+                    </h1>
+                </div>
+
+                <div className='relative'>
+                    <Swiper
+                        className="mySwiper"
+                        slidesPerView={6}
+                        spaceBetween={15}
+                        loop={true}
+                        modules={[Navigation, Autoplay]}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false
+                        }}
+                        navigation={{
+                            prevEl: ".custom-prev-btn",
+                            nextEl: ".custom-next-btn",
+                        }}
+                        breakpoints={{
+                            // When the screen width is >= 640px (small screens)
+                            375: {
+                                slidesPerView: 2, // Show 2 cards
+                                spaceBetween: 10,
+                            },
+                            // When the screen width is >= 768px (medium screens)
+                            768: {
+                                slidesPerView: 4, // Show 3 cards
+                                spaceBetween: 10,
+                            },
+                            // When the screen width is >= 1024px (large screens)
+                            1024: {
+                                slidesPerView: 7, // Show 4 cards
+                                spaceBetween: 30,
+                            },
+                            // When the screen width is >= 1280px
+                            1280: {
+                                slidesPerView: 7, // Show 5 cards
+                                spaceBetween: 30,
+                            },
+                        }}
+                    >
+                        {categoryDetails.map(({ image }) => (
+                            <SwiperSlide key={image}>
+                                <div className='pt-6 pb-10 px-2'>
+                                    <RecentlyViewed image={image} />
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+
+                    <div className='absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full z-10'>
+                        <button className='custom-prev-btn bg-yellow-400/50 hover:bg-yellow-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
+                            <HiOutlineChevronLeft className='w-5 lg:w-6 h-5 lg:h-6' />
+                        </button>
+                        <button className='custom-next-btn bg-yellow-400/50 hover:bg-yellow-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
+                            <HiOutlineChevronRight className='w-5 lg:w-6 h-5 lg:h-6' />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
