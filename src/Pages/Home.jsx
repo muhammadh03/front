@@ -56,6 +56,7 @@ import bmd from "../assets/brands-svgs/blackmagic-design-logo.svg";
 import msi from "../assets/brands-svgs/micro-star-international-logo.svg";
 import asus from "../assets/brands-svgs/asus-4.svg";
 import RecentlyViewed from '../Components/Products/RecentlyViewed';
+import Footer from '../Components/Common/Footer';
 
 
 
@@ -683,12 +684,12 @@ const Home = () => {
                             // When the screen width is >= 1024px (large screens)
                             1024: {
                                 slidesPerView: 7, // Show 4 cards
-                                spaceBetween: 30,
+                                spaceBetween: 20,
                             },
                             // When the screen width is >= 1280px
                             1280: {
                                 slidesPerView: 7, // Show 5 cards
-                                spaceBetween: 30,
+                                spaceBetween: 20,
                             },
                         }}
                     >
@@ -711,6 +712,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <Footer />
         </div>
     )
 }
