@@ -2,7 +2,7 @@
 
 const TopBrands = ({ image, logo }) => {
     return (
-        <div className="bg-white w-full md:w-[21rem] lg:w-[17.5rem] p-3 rounded-md border-1 border-gray-300">
+        <div className="bg-white w-full md:w-[21rem] lg:w-[17.5rem] p-3 rounded-md border-1 border-gray-300 shadow-md hover:shadow-blue-400 hover:shadow-2xl overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="flex items-start">
                 <div>
                     <img src={image} alt="" className="w-44 md:w-40 lg:w-36 h-auto" />

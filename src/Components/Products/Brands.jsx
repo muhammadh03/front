@@ -137,7 +137,7 @@ const brandDetails = [
 
 const Brands = () => {
     return (
-        <div className='bg-yellow-400/95'>
+        <div className='bg-yellow-300/95'>
             <div className='container mx-auto'>
                 <Swiper
                     slidesPerView={6}
