@@ -57,6 +57,7 @@ import msi from "../assets/brands-svgs/micro-star-international-logo.svg";
 import asus from "../assets/brands-svgs/asus-4.svg";
 import RecentlyViewed from '../Components/Products/RecentlyViewed';
 import Footer from '../Components/Common/Footer';
+import Service from '../Components/Products/Service';
 
 
 
@@ -713,6 +714,10 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* SERVICES */}
+            <Service />
+
+            {/* FOOTER */}
             <Footer />
         </div>
     )
