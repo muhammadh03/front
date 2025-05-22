@@ -31,14 +31,14 @@ const Navbar = () => {
 
                 {/* Mobile Menu */}
                 {isOpen && (
-                    <div className='bg-blue-100 w-[15rem] z-50 lg:hidden absolute top-[11.5rem] md:top-[10.8rem] left-4.7 md:left-8 rounded-md'>
+                    <div className='bg-yellow-300 w-[15rem] z-50 lg:hidden absolute top-[11.5rem] md:top-[10.8rem] left-4.7 md:left-8 rounded-md'>
                         <div className='flex flex-col gap-6 p-4 '>
 
                             <div className='flex justify-between group'>
-                                <Link to="#" onClick={() => toggleMobileMenu('Computers & Laptops')} className=' text-black hover:text-yellow-400/95'>
+                                <Link to="#" onClick={() => toggleMobileMenu('Computers & Laptops')} className=' text-black hover:text-blue-600'>
                                     Computers & Laptops
                                     {activeMobileMenu === 'Computers & Laptops' && (
-                                        <div className='bg-blue-100 text-black flex flex-col gap-2 py-2 px-4 rounded-md'>
+                                        <div className='bg-yellow-300 text-black flex flex-col gap-2 py-2 px-4 rounded-md'>
                                             <Link>Home1</Link>
                                             <Link>Home1</Link>
                                             <Link>Home1</Link>
