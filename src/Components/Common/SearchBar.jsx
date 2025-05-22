@@ -2,14 +2,20 @@ import { HiMagnifyingGlass, HiOutlineHeart, HiOutlineShoppingBag, HiOutlineUser 
 import Logo from '../../assets/logo.png';
 import CartDrawer from '../Layout/CartDrawer';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SearchBar = () => {
 
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isAccountOpen, setIsAccountOpen] = useState(false);
 
   const toggleCartDrawer = () => {
     setDrawerOpen(!drawerOpen);
-  }
+  };
+
+  const toggleAccount = () => {
+    setIsAccountOpen(!isAccountOpen);
+  };
 
   return (
     <div className="bg-blue-100">
@@ -23,11 +29,18 @@ const SearchBar = () => {
 
           <div className="md:hidden flex items-center gap-6">
             {/* Account */}
-            <div className="flex items-center">
-              <button className='text-gray-600 hover:text-black'>
+            <div className="relative flex items-center">
+              <button onClick={toggleAccount} className='text-gray-600 hover:text-black'>
                 <HiOutlineUser className="h-6 w-6 cursor-pointer" />
               </button>
             </div>
+
+            {isAccountOpen && (
+              <div className='absolute top-[6rem] right-[4.8rem] bg-blue-100 text-gray-500 flex flex-col gap-2 p-4 z-50 rounded-md'>
+                <Link className='hover:text-blue-700'>Register</Link>
+                <Link className='hover:text-blue-700'>Login</Link>
+              </div>
+            )}
 
             {/* Wishlist */}
             <div className="flex items-center">
@@ -63,11 +76,18 @@ const SearchBar = () => {
         <div className="hidden md:flex items-center gap-6">
 
           {/* Account */}
-          <div className="flex items-center">
-            <button className='text-gray-600 hover:text-black'>
+          <div className="relative flex items-center">
+            <button onClick={toggleAccount} className='text-gray-600 hover:text-black'>
               <HiOutlineUser className="h-6 w-6 cursor-pointer" />
             </button>
           </div>
+
+          {isAccountOpen && (
+            <div className='absolute top-[7.5rem] right-[5.5rem] bg-blue-100 text-gray-500 flex flex-col gap-2 p-4 z-50 border border-gray-300 rounded-md'>
+              <Link className='hover:text-blue-700'>Register</Link>
+              <Link className='hover:text-blue-700'>Login</Link>
+            </div>
+          )}
 
           {/* Wishlist */}
           <div className="flex items-center">
