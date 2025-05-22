@@ -1,5 +1,3 @@
-import React from 'react'
-import { FaPhoneVolume } from 'react-icons/fa';
 import { FaTruckFast } from 'react-icons/fa6';
 import { GiPayMoney } from 'react-icons/gi';
 import { MdPhoneInTalk } from 'react-icons/md';

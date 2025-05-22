@@ -1,7 +1,16 @@
 import { HiMagnifyingGlass, HiOutlineHeart, HiOutlineShoppingBag, HiOutlineUser } from 'react-icons/hi2';
 import Logo from '../../assets/logo.png';
+import CartDrawer from '../Layout/CartDrawer';
+import { useState } from 'react';
 
 const SearchBar = () => {
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleCartDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  }
+
   return (
     <div className="bg-blue-100">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4 lg:gap-32">
@@ -69,7 +78,7 @@ const SearchBar = () => {
 
           {/* Cart */}
           <div className="flex items-center">
-            <button className='relative text-gray-600 hover:text-black'>
+            <button onClick={toggleCartDrawer} className='relative text-gray-600 hover:text-black'>
               <HiOutlineShoppingBag className="h-6 w-6 cursor-pointer" />
               <span className='absolute -top-1 -right-1 bg-blue-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full'>
                 4
@@ -78,6 +87,8 @@ const SearchBar = () => {
           </div>
         </div>
       </div>
+
+      <CartDrawer drawerOpen={drawerOpen} toggleCartDrawer={toggleCartDrawer} />
     </div>
   );
 };

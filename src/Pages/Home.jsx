@@ -718,7 +718,14 @@ const Home = () => {
             <Service />
 
             {/* FOOTER */}
-            <Footer />
+            <div>
+                <Footer />
+                <div className="bg-blue-200 text-center py-6">
+                    <p className='text-gray-500'>
+                        © 2025 TecCity. All rights reserved.
+                    </p>
+                </div>
+            </div>
         </div>
     )
 }
