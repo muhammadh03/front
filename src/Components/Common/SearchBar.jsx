@@ -38,10 +38,10 @@ const SearchBar = () => {
 
             {/* Cart */}
             <div className="flex items-center">
-              <button className='relative text-gray-600 hover:text-black'>
+              <button onClick={toggleCartDrawer} className='relative text-gray-600 hover:text-black'>
                 <HiOutlineShoppingBag className="h-6 w-6 cursor-pointer" />
                 <span className='absolute -top-1 -right-1 bg-blue-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full'>
-                  4
+                  2
                 </span>
               </button>
             </div>
