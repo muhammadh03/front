@@ -36,7 +36,7 @@ const SearchBar = () => {
             </div>
 
             {isAccountOpen && (
-              <div className='absolute top-[6rem] right-[4.8rem] bg-blue-100 text-gray-500 flex flex-col gap-2 p-4 z-50 rounded-md'>
+              <div className='absolute top-[6rem] right-[4.8rem] bg-blue-100 text-gray-500 text-sm flex flex-col gap-2 p-4 z-50 rounded-md'>
                 <Link className='hover:text-blue-700'>Register</Link>
                 <Link className='hover:text-blue-700'>Login</Link>
               </div>
