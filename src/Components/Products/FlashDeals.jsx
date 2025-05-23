@@ -1,7 +1,24 @@
+import { useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { toast } from "sonner";
 // import gamingConsole from "../../assets/products/gaming-console.png";
 
 const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => {
+
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
+    const handleAddToCart = () => {
+        setIsButtonDisabled(true);
+
+        setTimeout(() => {
+            toast.success("Product added to cart", {
+                duration: 1000,
+            });
+
+            setIsButtonDisabled(false);
+        }, 500);
+    };
+
     return (
         <div className="w-[10.5rem] md:w-56 lg:w-[17.4rem] h-auto border-2 border-gray-200 hover:border-blue-200 rounded-md shadow-md hover:shadow-blue-300 hover:shadow-2xl overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="flex flex-col items-center pt-4 px-2">
@@ -11,7 +28,7 @@ const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => 
                 </div>
 
                 {/* Countdown */}
-                <div className="w-full md:w-auto flex items-center gap-2 bg-yellow-400/95 text-white text-xs md:text-base rounded-full py-1 px-4 md:px-5 lg:px-8 mt-4">
+                <div className="w-full md:w-auto flex items-center gap-2 bg-blue-400 text-white text-xs md:text-base rounded-full py-1 px-4 md:px-5 lg:px-8 mt-4">
                     <span className="flex flex-col">
                         <span className="font-medium">00</span>
                         <span className="text-[0.5rem] md:text-xs -mt-[0.1rem] md:-mt-1">Day</span>
@@ -75,7 +92,7 @@ const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => 
                 {/* Availability Progress Bar */}
                 <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                     {/* Filled Progress */}
-                    <div className="bg-yellow-400 h-2 rounded-full w-[70%]"></div>
+                    <div className="bg-blue-400 h-2 rounded-full w-[70%]"></div>
 
                     {/* Dot */}
                     {/* <div className="absolute top-1/2 -translate-y-1/2 bg-green-700 w-6 h-6 rounded-full border-2 border-white left-[calc(75%-0.75rem)]"></div> */}
@@ -109,11 +126,15 @@ const FlashDeals = ({ brand, title, price, image, available, sold, rating }) => 
 
                 {/* Product Button */}
                 <div className='w-full flex flex-col gap-2 mt-2'>
-                    <button className='w-full text-xs md:text-sm font-semibold text-white bg-gray-300 hover:bg-blue-500 px-2 py-1 rounded-md'>
+                    <button className='w-full text-xs md:text-sm font-semibold text-white bg-gray-300 hover:bg-blue-400 px-2 py-1 rounded-md'>
                         Buy Now
                     </button>
-                    <button className='w-full text-xs md:text-sm font-semibold text-white bg-yellow-300 hover:bg-yellow-500 px-2 py-1 rounded-md'>
-                        Add To Cart
+                    <button
+                        disabled={isButtonDisabled}
+                        onClick={handleAddToCart}
+                        className={`w-full text-xs md:text-sm font-semibold text-white bg-gray-700  px-2 py-1 rounded-md ${isButtonDisabled ? "cursor-not-allowed opacity-50" : "hover:bg-gray-600"}`}
+                    >
+                        {isButtonDisabled ? 'Adding...' : 'Add to Cart'}
                     </button>
                 </div>
             </div>

@@ -5,7 +5,7 @@ import { RiDiscountPercentFill } from 'react-icons/ri';
 
 const Service = () => {
     return (
-        <div className='bg-yellow-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pb-6 lg:py-6 px-16 text-center'>
+        <div className='bg-blue-500 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pb-6 lg:py-6 px-16 text-center'>
             <div className='flex flex-col items-center gap-2'>
                 <div className='text-white'>
                     <FaTruckFast className='w-8 lg:w-10 h-8 lg:h-10' />

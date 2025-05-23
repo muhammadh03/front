@@ -127,44 +127,48 @@ const categoryDetails = [
 
 const flashDealsDetails = [
     {
+        _id: 1,
         brand: "Sony",
         title: "PlayStation 5 Marvel's Spider-Man 2 Limited Edition",
-        price: "560.00",
+        price: 560.00,
         image: playstationFive,
-        available: "38",
-        sold: "12",
+        available: 38,
+        sold: 12,
         rating: "4.5",
-        reviews: "12"
+        reviews: 12
     },
     {
+        _id: 2,
         brand: "Lenovo",
         title: "Lenovo LOQ 15IAX9 Gaming Laptop",
-        price: "650.00",
+        price: 650.00,
         image: laptop,
-        available: "15",
-        sold: "5",
+        available: 15,
+        sold: 5,
         rating: "4.8",
-        reviews: "3"
+        reviews: 3
     },
     {
+        _id: 3,
         brand: "DJI",
         title: "DJI Avatar Fly Smart Combo w/ FPV Goggles V2",
-        price: "970.00",
+        price: 970.00,
         image: drone,
-        available: "8",
-        sold: "4",
+        available: 8,
+        sold: 4,
         rating: "4.8",
-        reviews: "4"
+        reviews: 4
     },
     {
+        _id: 4,
         brand: "Dominion",
         title: "Gaming PC - Intel Core i7-14700KF 20 Cores 28 Threads",
-        price: "3300.00",
+        price: 3300.00,
         image: pc,
-        available: "22",
-        sold: "12",
+        available: 22,
+        sold: 12,
         rating: "4.9",
-        reviews: "10"
+        reviews: 10
     },
 ];
 
@@ -373,17 +377,18 @@ const Home = () => {
 
                 <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mt-6'>
                     {flashDealsDetails.map(({ brand, title, price, image, available, sold, rating, reviews }) => (
-                        <FlashDeals
-                            key={title}
-                            brand={brand}
-                            title={title}
-                            price={price}
-                            image={image}
-                            available={available}
-                            sold={sold}
-                            rating={rating}
-                            reviews={reviews}
-                        />
+                        <Link key={title} to={`/product/${flashDealsDetails._id}`}>
+                            <FlashDeals
+                                brand={brand}
+                                title={title}
+                                price={price}
+                                image={image}
+                                available={available}
+                                sold={sold}
+                                rating={rating}
+                                reviews={reviews}
+                            />
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -649,9 +654,9 @@ const Home = () => {
             </div>
 
             {/* TOP BRANDS */}
-            <div className='container mx-auto bg-yellow-300'>
+            <div className='container mx-auto bg-gray-700'>
                 <div className='px-2'>
-                    <h1 className='text-base md:text-2xl font-bold text-gray-500'>
+                    <h1 className='text-base md:text-2xl font-bold text-white'>
                         Recently Viewed Products
                     </h1>
                 </div>
@@ -704,10 +709,10 @@ const Home = () => {
                     </Swiper>
 
                     <div className='absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full z-10'>
-                        <button className='custom-prev-btn bg-yellow-400/50 hover:bg-yellow-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
+                        <button className='custom-prev-btn bg-gray-400/50 hover:bg-gray-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
                             <HiOutlineChevronLeft className='w-5 lg:w-6 h-5 lg:h-6' />
                         </button>
-                        <button className='custom-next-btn bg-yellow-400/50 hover:bg-yellow-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
+                        <button className='custom-next-btn bg-gray-400/50 hover:bg-gray-400 rounded-full py-1 px-1 md:py-2 md:px-2 text-white'>
                             <HiOutlineChevronRight className='w-5 lg:w-6 h-5 lg:h-6' />
                         </button>
                     </div>

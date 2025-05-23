@@ -1,9 +1,27 @@
+import { useState } from 'react';
+import { toast } from 'sonner';
+
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { HiOutlineEye, HiOutlineHeart, HiOutlineScale } from 'react-icons/hi2';
 
 // import gamingConsole from "../../assets/products/gaming-console.png";
 
 const DailyOffers = ({ brand, title, price, image, reviews }) => {
+
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
+    const handleAddToCart = () => {
+        setIsButtonDisabled(true);
+
+        setTimeout(() => {
+            toast.success("Product added to cart", {
+                duration: 1000,
+            });
+
+            setIsButtonDisabled(false);
+        }, 500);
+    }
+
     return (
         <div className="w-[9.5rem] md:w-[13.2rem] h-auto border-2 border-gray-200 hover:border-blue-200 rounded-md shadow-md hover:shadow-blue-300 hover:shadow-2xl overflow-hidden transform transition duration-300 hover:scale-105">
             <div className='p-4'>
@@ -66,11 +84,14 @@ const DailyOffers = ({ brand, title, price, image, reviews }) => {
 
                     {/* Product Button */}
                     <div className='w-full flex flex-col gap-2 mt-2'>
-                        <button className='w-full text-xs md:text-sm font-semibold text-white bg-gray-300 hover:bg-blue-500 px-2 py-1 rounded-md'>
+                        <button className='w-full text-xs md:text-sm font-semibold text-white bg-gray-300 hover:bg-blue-400 px-2 py-1 rounded-md'>
                             Buy Now
                         </button>
-                        <button className='w-full text-xs md:text-sm font-semibold text-white bg-yellow-300 hover:bg-yellow-500 px-2 py-1 rounded-md'>
-                            Add To Cart
+                        <button
+                            disabled={isButtonDisabled}
+                            onClick={handleAddToCart}
+                            className={`w-full text-xs md:text-sm font-semibold text-white bg-gray-700 px-2 py-1 rounded-md ${isButtonDisabled ? "cursor-not-allowed opacity-50" : "hover:bg-gray-600"}`}>
+                            {isButtonDisabled ? "Adding..." : "Add to Cart"}
                         </button>
                     </div>
                 </div>
