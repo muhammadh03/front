@@ -139,13 +139,13 @@ const ProductDetails = () => {
                                         </span>
                                     </div>
 
-                                    <div className='flex gap-2 md:gap-6'>
+                                    <div className='flex gap-4 md:gap-6'>
                                         <button className='text-gray-400 hover:text-blue-600 flex items-center gap-2'>
-                                            <HiOutlineHeart className='w-4 h-4 lg:w-7 lg:h-7' />
+                                            <HiOutlineHeart className='w-6 h-6 lg:w-8 lg:h-8' />
                                             <span>Add to wishlist</span>
                                         </button>
                                         <button className='text-gray-400 hover:text-blue-600 flex items-center gap-2'>
-                                            <HiOutlineScale className='w-4 h-4 lg:w-7 lg:h-7' />
+                                            <HiOutlineScale className='w-6 h-6 lg:w-8 lg:h-8' />
                                             <span>Compare</span>
                                         </button>
                                     </div>
@@ -238,11 +238,11 @@ const ProductDetails = () => {
                                 </div>
 
                                 {/* Buttons */}
-                                <div className='flex items-center gap-4'>
-                                    <button className='bg-gray-500 text-white text-sm font-semibold py-2 px-10 md:px-16 rounded-sm hover:bg-gray-700'>
+                                <div className='flex items-center justify-evenly gap-4'>
+                                    <button className='bg-gray-500 text-white text-sm font-semibold py-2 px-8 md:px-16 rounded-sm hover:bg-gray-700'>
                                         ADD TO CART
                                     </button>
-                                    <button className='bg-gray-500 text-white text-sm font-semibold py-2 px-10 md:px-16 rounded-sm hover:bg-gray-700'>
+                                    <button className='bg-gray-500 text-white text-sm font-semibold py-2 px-12 md:px-16 rounded-sm hover:bg-gray-700'>
                                         BUY NOW
                                     </button>
                                 </div>
