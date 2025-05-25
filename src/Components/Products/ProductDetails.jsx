@@ -117,7 +117,7 @@ const ProductDetails = () => {
                         <div className='flex flex-col gap-4'>
                             {/* Title */}
                             <div>
-                                <h1 className='text-2xl font-semibold'>Lenovo LOQ 15IAX9 Gaming Laptop, 15.6", English (UK) Keyboard, FreeDOS, Luna Grey | 83GS00KFPS</h1>
+                                <h1 className='text-2xl font-semibold'>Lenovo LOQ 15IAX9 Gaming Laptop, 15.6", English (UK) Keyboard, FreeDOS, 83GS00KFPS</h1>
                             </div>
 
                             {/* Seller & Rating */}
@@ -125,7 +125,7 @@ const ProductDetails = () => {
                                 <div>
                                     by <span className='text-sm font-semibold text-gray-700'>Tek City</span>
                                 </div>
-                                <div className='flex items-center justify-between'>
+                                <div className='flex flex-col md:flex-row items-start md:items-center justify-between gap-2'>
                                     <div className="flex items-center mt-1">
                                         <span className="flex gap-1 md:gap-2">
                                             <FaStar className="text-yellow-400" />
