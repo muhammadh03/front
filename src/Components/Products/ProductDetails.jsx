@@ -293,36 +293,32 @@ const ProductDetails = () => {
                 </div>
 
                 {/* Reviews */}
-                <div className='mt-14'>
-                    <div className='bg-blue-100 py-2 px-4 flex flex-col md:flex-row md:items-center gap-1 md:gap-4'>
-                        <div className='flex items-center gap-4'>
-                            <h2 className='font-semibold text-gray-500 md:text-xl'>Reviews</h2>
-                            <div className="flex items-center gap-3">
-                                <span className="flex items-center gap-1 md:gap-2">
-                                    <FaStar className="text-yellow-400 w-3 md:w-5 h-3 md:h-5" />
-                                    <FaStar className="text-yellow-400 w-3 md:w-5 h-3 md:h-5" />
-                                    <FaStar className="text-yellow-400 w-3 md:w-5 h-3 md:h-5" />
-                                    <FaStar className="text-yellow-400 w-3 md:w-5 h-3 md:h-5" />
-                                    <FaStarHalfAlt className="text-yellow-400 w-3 md:w-5 h-3 md:h-5" />
-                                    <span className="md:text-lg text-gray-500 font-semibold">
-                                        4.8
-                                    </span>
+                <div className='mt-8 md:mt-14'>
+                    <div className='bg-blue-100 py-2 px-2 md:px-4 flex items-center gap-1 md:gap-4 rounded-sm'>
+                        <h2 className='font-semibold text-gray-500 md:text-xl'>Reviews</h2>
+                        <div className="flex items-center gap-2 md:gap-3">
+                            <span className="flex items-center gap-1 md:gap-2">
+                                <FaStar className="text-yellow-400 w-3 md:w-5 h-3 md:h-5" />
+                                <FaStar className="text-yellow-400 w-3 md:w-5 h-3 md:h-5" />
+                                <FaStar className="text-yellow-400 w-3 md:w-5 h-3 md:h-5" />
+                                <FaStar className="text-yellow-400 w-3 md:w-5 h-3 md:h-5" />
+                                <FaStarHalfAlt className="text-yellow-400 w-3 md:w-5 h-3 md:h-5" />
+                                <span className="md:text-lg text-gray-500 font-semibold">
+                                    4.8
                                 </span>
-                            </div>
-                        </div>
-                        <div className='flex items-center gap-4'>
-                            <span className="text-sm text-gray-500 cursor-pointer">
+                            </span>
+                            <span className="text-xs md:text-sm text-gray-500 cursor-pointer">
                                 13 Reviews
                             </span>
-                            <span className='text-gray-500'>|</span>
-                            <span className="text-sm text-gray-500 cursor-pointer">
+                            <span className='text-xs md:text-gray-500'>|</span>
+                            <span className="text-xs md:text-sm text-gray-500 cursor-pointer">
                                 5 Ratings
                             </span>
                         </div>
                     </div>
 
                     <div className='flex items-center gap-4 mt-4'>
-                        <div className='flex flex-col-reverse gap-2'>
+                        <div className='flex flex-col-reverse md:flex-row gap-2'>
                             <div>
                                 <select
                                     name="rating"
@@ -352,7 +348,7 @@ const ProductDetails = () => {
                             </div>
                         </div>
 
-                        <div className='flex flex-col gap-2'>
+                        <div className='flex flex-col md:flex-row gap-2'>
                             {/* Messages */}
                             <div className='bg-blue-100 py-1 px-2 flex items-center gap-2 rounded-sm'>
                                 <TiMessages className='w-5 h-5 text-gray-500' />
