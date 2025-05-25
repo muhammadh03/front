@@ -238,7 +238,7 @@ const ProductDetails = () => {
                                 </div>
 
                                 {/* Buttons */}
-                                <div className='flex items-center justify-between gap-4'>
+                                <div className='flex items-center justify-around gap-4'>
                                     <button className='bg-gray-500 text-white text-sm font-semibold py-2 px-[2.2rem] md:px-16 rounded-sm hover:bg-gray-700'>
                                         ADD TO CART
                                     </button>
