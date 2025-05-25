@@ -84,9 +84,9 @@ const DailyOffers = ({ brand, title, price, image, reviews }) => {
 
                     {/* Product Button */}
                     <div className='w-full flex flex-col gap-2 mt-2'>
-                        <button className='w-full text-xs md:text-sm font-semibold text-white bg-gray-300 hover:bg-blue-400 px-2 py-1 rounded-md'>
+                        {/* <button className='w-full text-xs md:text-sm font-semibold text-white bg-gray-300 hover:bg-blue-400 px-2 py-1 rounded-md'>
                             Buy Now
-                        </button>
+                        </button> */}
                         <button
                             disabled={isButtonDisabled}
                             onClick={handleAddToCart}

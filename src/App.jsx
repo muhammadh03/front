@@ -3,6 +3,7 @@ import { Toaster } from 'sonner';
 import UserLayout from './Components/Layout/UserLayout'
 import Home from './Pages/Home';
 import Collection from './Pages/Collection';
+import ProductDetails from './Components/Products/ProductDetails';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           <Route path="/" element={<UserLayout />}>
             <Route index element={<Home />} />
             <Route path="collections/:collection" element={<Collection />} />
+            <Route path='product/:id' element={<ProductDetails />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -331,6 +331,11 @@ const topBrandsDetails = [
 ];
 
 const Home = () => {
+
+    const addToCart = (flashDeals) => {
+        console.log("Product added to cart:", flashDeals);
+    }
+
     return (
         <div>
             <Hero />
@@ -376,19 +381,12 @@ const Home = () => {
                 </div>
 
                 <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mt-6'>
-                    {flashDealsDetails.map(({ brand, title, price, image, available, sold, rating, reviews }) => (
-                        <Link key={title} to={`/product/${flashDealsDetails._id}`}>
-                            <FlashDeals
-                                brand={brand}
-                                title={title}
-                                price={price}
-                                image={image}
-                                available={available}
-                                sold={sold}
-                                rating={rating}
-                                reviews={reviews}
-                            />
-                        </Link>
+                    {flashDealsDetails.map((flashDeals) => (
+                        <FlashDeals
+                            key={flashDeals._id}
+                            flashDeals={flashDeals}
+                            addToCart={addToCart}
+                        />
                     ))}
                 </div>
             </div>
@@ -722,15 +720,6 @@ const Home = () => {
             {/* SERVICES */}
             <Service />
 
-            {/* FOOTER */}
-            <div>
-                <Footer />
-                <div className="bg-blue-200 text-center py-6">
-                    <p className='text-gray-500'>
-                        © 2025 TecCity. All rights reserved.
-                    </p>
-                </div>
-            </div>
         </div>
     )
 }
