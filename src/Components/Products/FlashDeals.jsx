@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link, } from "react-router-dom";
 import { toast } from "sonner";
+import { updateRecentlyViewed } from "../../Utils/recentlyViewed";
 // import gamingConsole from "../../assets/products/gaming-console.png";
 
 const FlashDeals = ({ flashDeals, addToCart }) => {
@@ -38,6 +39,7 @@ const FlashDeals = ({ flashDeals, addToCart }) => {
     return (
         <Link
             to={`/product/${flashDeals._id}`}
+            onClick={() => updateRecentlyViewed(flashDeals)}
             className="w-[10.5rem] md:w-56 lg:w-[17.4rem] h-auto border-2 border-gray-200 hover:border-blue-200 rounded-md shadow-md hover:shadow-blue-300 hover:shadow-2xl overflow-hidden transform transition duration-300 hover:scale-105"
         >
             <div className="flex flex-col items-center pt-4 px-2">

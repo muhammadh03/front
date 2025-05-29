@@ -5,9 +5,11 @@ import { HiOutlineHeart, HiOutlineScale } from 'react-icons/hi2';
 import { IoImagesOutline } from 'react-icons/io5';
 import { TiMessages } from 'react-icons/ti';
 import { TbArrowsSort } from 'react-icons/tb';
+import { MdAccountCircle } from 'react-icons/md';
 
 
 import RecentlyViewed from './RecentlyViewed';
+import { updateRecentlyViewed } from '../../Utils/recentlyViewed';
 
 
 import laptop from "../../assets/products/laptop.png";
@@ -20,7 +22,9 @@ import lenovoSeven from "../../assets/products/lenovo-7.png"
 import lenovoEight from "../../assets/products/lenovo-8.png"
 import lenovoNine from "../../assets/products/lenovo-9.png"
 import lenovoTen from "../../assets/products/lenovo-10.png"
-import { MdAccountCircle } from 'react-icons/md';
+import colorOne from "../../assets/products/color-1.png"
+import colorTwo from "../../assets/products/color-2.png"
+import colorThree from "../../assets/products/color-3.png"
 
 
 const selectedProduct = {
@@ -33,6 +37,30 @@ const selectedProduct = {
     sold: 5,
     rating: "4.8",
     reviews: 3,
+    // colors: [
+    //     "Black",
+    //     "Blue",
+    //     "Red",
+    //     "White",
+    //     "Yellow"
+    // ],
+    colorImages: [
+        {
+            image: colorOne,
+            color: "Blue",
+            altText: "color_1"
+        },
+        {
+            image: colorTwo,
+            color: "Black",
+            altText: "color_2"
+        },
+        {
+            image: colorThree,
+            color: "Yellow",
+            altText: "color_3"
+        }
+    ],
     images: [
         {
             image: laptop,
@@ -80,11 +108,22 @@ const selectedProduct = {
 const ProductDetails = () => {
 
     const [mainImage, setMainImage] = useState("null");
+    const [selectedColor, setSelectedColor] = useState("null");
+    // const [activeSize, setActiveSize] = useState("null");
 
     useEffect(() => {
         if (selectedProduct?.images?.length > 0) {
             setMainImage(selectedProduct.images[0].image);
         }
+
+        if (selectedProduct?.colorImages?.length > 0) {
+            setSelectedColor(selectedProduct.colorImages[0].color);
+        }
+
+        if (selectedProduct) {
+            updateRecentlyViewed(selectedProduct);
+        }
+
     }, [selectedProduct]);
 
     return (
@@ -223,18 +262,23 @@ const ProductDetails = () => {
                             <div className='flex flex-col gap-2'>
                                 <div className='text-gray-500'>
                                     <span className='font-semibold text-gray-700'>Color: </span>
-                                    <span>Luna Grey</span>
+                                    <span> {selectedColor} </span>
                                 </div>
                                 <div className='flex items-center gap-2'>
-                                    <div className='w-12 h-12  rounded-md border-2 border-dashed border-blue-300 flex items-center justify-center p-0.5'>
-                                        <img src={mainImage} alt="" className='opacity-50' />
-                                    </div>
-                                    <div className='w-12 h-12 rounded-md border-2 border-blue-300 flex items-center justify-center p-0.5'>
-                                        <img src={mainImage} alt="" />
-                                    </div>
-                                    <div className='w-12 h-12 rounded-md border-2 border-dashed border-blue-300 flex items-center justify-center p-0.5'>
-                                        <img src={mainImage} alt="" className='opacity-50' />
-                                    </div>
+                                    {selectedProduct.colorImages.map((image, index) => (
+                                        <div className='w-12 h-12  rounded-md border-2 border-dashed border-blue-300 flex items-center justify-center p-0.5'>
+                                            <img
+                                                key={index}
+                                                src={image.image}
+                                                alt={image.altText || `Thumbnail ${index}`}
+                                                className='opacity-50'
+                                                onClick={() => {
+                                                    setMainImage(image.image)
+                                                    setSelectedColor(image.color); // Set color name
+                                                }}
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
 
@@ -482,19 +526,19 @@ const ProductDetails = () => {
                     </div>
 
                     <div>
-                        <div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th className='py-2 px-4 text-left text-gray-500'>Brand</th>
-                                        <th className='py-2 px-4 text-left text-gray-500'>Model</th>
-                                        <th className='py-2 px-4 text-left text-gray-500'>Processor</th>
-                                    </tr>
-                                </thead>
+                        <div className="overflow-x-auto">
+                            <table className='table-auto'>
                                 <tbody>
-                                    <tr>
+                                    <tr className="border-b border-gray-300">
+                                        <th className='py-2 px-4 text-left text-gray-500'>Brand</th>
                                         <td className='py-2 px-4 text-left text-gray-500'>Lenovo</td>
+                                    </tr>
+                                    <tr className="border-b border-gray-300">
+                                        <th className='py-2 px-4 text-left text-gray-500'>Model</th>
                                         <td className='py-2 px-4 text-left text-gray-500'>LOQ 15IAX9</td>
+                                    </tr>
+                                    <tr className="border-b border-gray-300">
+                                        <th className='py-2 px-4 text-left text-gray-500'>Processor</th>
                                         <td className='py-2 px-4 text-left text-gray-500'>Intel Core i5-1135G7</td>
                                     </tr>
                                 </tbody>

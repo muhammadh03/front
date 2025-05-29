@@ -56,70 +56,80 @@ import bmd from "../assets/brands-svgs/blackmagic-design-logo.svg";
 import msi from "../assets/brands-svgs/micro-star-international-logo.svg";
 import asus from "../assets/brands-svgs/asus-4.svg";
 import RecentlyViewed from '../Components/Products/RecentlyViewed';
-import Footer from '../Components/Common/Footer';
 import Service from '../Components/Products/Service';
 
 
 
 const categoryDetails = [
     {
-        title: "mobile",
+        title: "Mobile",
         image: mobile,
-        // size: 
+        category: "mobile",
     },
     {
-        title: "laptop",
+        title: "Laptop",
         image: laptop,
+        category: "laptop",
         // size: 
     },
     {
-        title: "pc",
+        title: "Desktop",
         image: pc,
+        category: "desktop",
         // size: 
     },
     {
-        title: "monitor",
+        title: "Monitor",
         image: monitor,
+        category: "monitor",
         // size: 
     },
     {
-        title: "gaming-console",
+        title: "Gaming",
         image: gamingConsole,
+        category: "gaming-console",
         // size: 
     },
     {
-        title: "camera",
+        title: "Camera",
         image: camera,
+        category: "camera",
         // size: 
     },
     {
-        title: "printer",
+        title: "Printer",
         image: printer,
+        category: "printer",
         // size: 
     },
     {
         title: "3D-printer",
         image: threeDprinter,
+        category: "3D-printer",
         // size: 
     },
     {
-        title: "scanner",
+        title: "Scanner",
         image: scanner,
+        category: "scanner",
         // size: 
     },
     {
-        title: "fax-machine",
+        title: "Fax-machine",
         image: faxMachine,
+        category: "fax-machine",
         // size: 
     },
     {
-        title: "gaming-furniture",
+        title: "Gaming-furniture",
         image: gamingFurniture,
+        category: "gaming-furniture",
         // size: 
     },
     {
-        title: "office-furniture",
+        title: "Office-furniture",
         image: officeFurniture,
+        category: "office-furniture",
         // size: 
     },
 ];
@@ -175,6 +185,7 @@ const flashDealsDetails = [
 
 const dailyOffersDetails = [
     {
+        _id: 1,
         brand: "Sony",
         title: "PlayStation 5 Marvel's Spider-Man 2 Limited Edition",
         price: "560.00",
@@ -185,6 +196,7 @@ const dailyOffersDetails = [
         reviews: "12"
     },
     {
+        _id: 2,
         brand: "LENOVO",
         title: "Lenovo LOQ 15IAX9 Gaming Laptop",
         price: "650.00",
@@ -195,6 +207,7 @@ const dailyOffersDetails = [
         reviews: "3"
     },
     {
+        _id: 3,
         brand: "DJI",
         title: "DJI Avatar Fly Smart Combo w/ FPV Goggles V2",
         price: "970.00",
@@ -205,6 +218,7 @@ const dailyOffersDetails = [
         reviews: "4"
     },
     {
+        _id: 4,
         brand: "DOMINION",
         title: "Gaming PC - Intel Core i7-14700KF 20 Cores 28 Threads",
         price: "3300.00",
@@ -215,6 +229,7 @@ const dailyOffersDetails = [
         reviews: "10"
     },
     {
+        _id: 5,
         brand: "BIQU",
         title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
         price: "650.00",
@@ -225,6 +240,29 @@ const dailyOffersDetails = [
         reviews: "3"
     },
     {
+        _id: 6,
+        brand: "BIQU",
+        title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
+        price: "650.00",
+        image: threeDprinter,
+        available: "15",
+        sold: "5",
+        rating: "4.8",
+        reviews: "3"
+    },
+    {
+        _id: 7,
+        brand: "BIQU",
+        title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
+        price: "650.00",
+        image: threeDprinter,
+        available: "15",
+        sold: "5",
+        rating: "4.8",
+        reviews: "3"
+    },
+    {
+        _id: 8,
         brand: "COUGAR",
         title: "Battlefield Blaze Gaming Setup",
         price: "650.00",
@@ -235,6 +273,7 @@ const dailyOffersDetails = [
         reviews: "3"
     },
     {
+        _id: 9,
         brand: "THRUSTMASTER",
         title: "Thrustmaster T598 Racing Wheel",
         price: "550.00",
@@ -245,6 +284,7 @@ const dailyOffersDetails = [
         reviews: "3"
     },
     {
+        _id: 10,
         brand: "GAINWARD",
         title: "Gainward GeForce RTX 3070 Phoenix V1 Edition",
         price: "514.00",
@@ -255,6 +295,7 @@ const dailyOffersDetails = [
         reviews: "3"
     },
     {
+        _id: 11,
         brand: "MSI",
         title: "MSI GeForce RTX 4090 VENTUS 3X OC Graphics Card",
         price: "4857.00",
@@ -265,6 +306,7 @@ const dailyOffersDetails = [
         reviews: "3"
     },
     {
+        _id: 12,
         brand: "HUAWEI",
         title: "HUAWEI Watch GT 5 Pro 46mm Smartwatch",
         price: "264.00",
@@ -275,6 +317,7 @@ const dailyOffersDetails = [
         reviews: "3"
     },
     {
+        _id: 13,
         brand: "SAMSUNG",
         title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
         price: "264.00",
@@ -332,8 +375,8 @@ const topBrandsDetails = [
 
 const Home = () => {
 
-    const addToCart = (flashDeals) => {
-        console.log("Product added to cart:", flashDeals);
+    const addToCart = (flashDeals, dailyOffers) => {
+        console.log("Product added to cart:", flashDeals, dailyOffers);
     }
 
     return (
@@ -350,11 +393,10 @@ const Home = () => {
                     </p>
                 </div>
                 <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-6'>
-                    {categoryDetails.map(({ title, image }) => (
+                    {categoryDetails.map((category) => (
                         <CategoryCard
-                            key={title}
-                            title={title}
-                            image={image}
+                            key={category.title}
+                            category={category}
                         />
                     ))}
                 </div>
@@ -440,16 +482,12 @@ const Home = () => {
                             },
                         }}
                     >
-                        {dailyOffersDetails.map(({ brand, title, price, image, rating, reviews }) => (
-                            <SwiperSlide key={title}>
-                                <div className='pt-6 pb-10 px-2'>
+                        {dailyOffersDetails.map((dailyOffers) => (
+                            <SwiperSlide>
+                                <div key={dailyOffers._id} className='pt-6 pb-10 px-2'>
                                     <DailyOffers
-                                        brand={brand}
-                                        title={title}
-                                        price={price}
-                                        image={image}
-                                        rating={rating}
-                                        reviews={reviews}
+                                        dailyOffers={dailyOffers}
+                                        addToCart={addToCart}
                                     />
                                 </div>
                             </SwiperSlide>
@@ -463,18 +501,6 @@ const Home = () => {
                             <HiOutlineChevronRight className='w-5 lg:w-6 h-5 lg:h-6' />
                         </button>
                     </div>
-                    {/* {dailyOffersDetails.map(({ brand, title, price, image, rating, reviews }) => (
-                        <SwiperSlide key={title}>
-                            <DailyOffers
-                                brand={brand}
-                                title={title}
-                                price={price}
-                                image={image}
-                                rating={rating}
-                                reviews={reviews}
-                            />
-                        </SwiperSlide>
-                    ))} */}
                 </div>
             </div>
 
@@ -527,16 +553,12 @@ const Home = () => {
                             },
                         }}
                     >
-                        {dailyOffersDetails.map(({ brand, title, price, image, rating, reviews }) => (
-                            <SwiperSlide key={title}>
-                                <div className='pt-6 pb-10 px-2'>
+                        {dailyOffersDetails.map((dailyOffers) => (
+                            <SwiperSlide>
+                                <div key={dailyOffers._id} className='pt-6 pb-10 px-2'>
                                     <MostSellingProducts
-                                        brand={brand}
-                                        title={title}
-                                        price={price}
-                                        image={image}
-                                        rating={rating}
-                                        reviews={reviews}
+                                        dailyOffers={dailyOffers}
+                                        addToCart={addToCart}
                                     />
                                 </div>
                             </SwiperSlide>
@@ -602,16 +624,12 @@ const Home = () => {
                             },
                         }}
                     >
-                        {dailyOffersDetails.map(({ brand, title, price, image, rating, reviews }) => (
-                            <SwiperSlide key={title}>
-                                <div className='pt-6 pb-10 px-2'>
+                        {dailyOffersDetails.map((dailyOffers) => (
+                            <SwiperSlide>
+                                <div key={dailyOffers._id} className='pt-6 pb-10 px-2'>
                                     <TopReviewedProducts
-                                        brand={brand}
-                                        title={title}
-                                        price={price}
-                                        image={image}
-                                        rating={rating}
-                                        reviews={reviews}
+                                        dailyOffers={dailyOffers}
+                                        addToCart={addToCart}
                                     />
                                 </div>
                             </SwiperSlide>
@@ -651,8 +669,9 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* TOP BRANDS */}
-            <div className='container mx-auto bg-gray-700'>
+            {/* RECENTLY VIEWED */}
+            {/* <RecentlyViewed /> */}
+            {/* <div className='container mx-auto bg-gray-700'>
                 <div className='px-2'>
                     <h1 className='text-base md:text-2xl font-bold text-white'>
                         Recently Viewed Products
@@ -715,7 +734,7 @@ const Home = () => {
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* SERVICES */}
             <Service />
