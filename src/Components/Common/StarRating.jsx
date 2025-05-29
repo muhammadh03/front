@@ -15,8 +15,11 @@ const StarRating = ({ rates }) => {
     }
 
     return (
-        <div className="flex items-center gap-3 mt-2">
-            <span className="flex gap-1">{stars}</span>
+        <div className="flex items-center justify-between mt-2">
+            <div className='flex'>
+                <input type="checkbox" name="rates" id="rates" />
+                <span className="flex gap-1 ml-2">{stars}</span>
+            </div>
             {rates.stock !== undefined && (
                 <span className="text-sm text-gray-500 mt-0.5">{rates.stock}</span>
             )}

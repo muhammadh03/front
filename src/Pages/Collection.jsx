@@ -251,7 +251,7 @@ const Collection = () => {
                 </div>
                 {/* Product Grid */}
                 <div className='w-full md:w-[75%] lg:w-[80%]'>
-                    <div className='flex items-center justify-between text-gray-700 border-2 border-gray-200 py-1.5 px-3 lg:px-4 bg-blue-100 rounded-sm'>
+                    <div className='flex items-center justify-between text-gray-700 border-2 border-gray-200 py-1.5 lg:py-2 px-3 lg:px-4 bg-blue-100 rounded-sm'>
                         <div
                             onClick={toggleFilter}
                             className='relative flex items-center gap-2 border-1 border-gray-200 bg-white py-0.5 px-2 md:px-4 rounded-sm cursor-pointer'
