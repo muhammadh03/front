@@ -57,6 +57,7 @@ import msi from "../assets/brands-svgs/micro-star-international-logo.svg";
 import asus from "../assets/brands-svgs/asus-4.svg";
 import RecentlyViewed from '../Components/Products/RecentlyViewed';
 import Service from '../Components/Products/Service';
+import FlashDealsCollection from './FlashDealsCollection';
 
 
 
@@ -415,10 +416,10 @@ const Home = () => {
                     </div>
 
                     <div className='w-52 md:w-auto flex gap-2 md:gap-4 mt-10.5 md:mt-8 text-[10px] md:text-base text-gray-500'>
-                        <Link to="#" className='hover:text-blue-600'>All</Link>
-                        <Link to="#" className='hover:text-blue-600 truncate'>BEST SELLERS</Link>
-                        <Link to="#" className='hover:text-blue-600 truncate'>MOST VIEWED</Link>
-                        <Link to="#" className='hover:text-blue-600 truncate'>TOP BRANDS</Link>
+                        <Link to="/flash-deals/collections/all" className='hover:text-blue-600'>All</Link>
+                        <Link to="/flash-deals/collections/all" className='hover:text-blue-600 truncate'>BEST SELLERS</Link>
+                        <Link to="/flash-deals/collections/all" className='hover:text-blue-600 truncate'>MOST VIEWED</Link>
+                        <Link to="/flash-deals/collections/all" className='hover:text-blue-600 truncate'>TOP BRANDS</Link>
                     </div>
                 </div>
 

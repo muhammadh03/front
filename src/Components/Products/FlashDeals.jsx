@@ -40,7 +40,7 @@ const FlashDeals = ({ flashDeals, addToCart }) => {
         <Link
             to={`/product/${flashDeals._id}`}
             onClick={() => updateRecentlyViewed(flashDeals)}
-            className="w-[10.5rem] md:w-56 lg:w-[17.4rem] h-auto border-2 border-gray-200 hover:border-blue-200 rounded-md shadow-md hover:shadow-blue-300 hover:shadow-2xl overflow-hidden transform transition duration-300 hover:scale-105"
+            className="w-[10rem] md:w-56 lg:w-[17.4rem] h-auto border-2 border-gray-200 hover:border-blue-200 rounded-md shadow-md hover:shadow-blue-300 hover:shadow-2xl overflow-hidden transform transition duration-300 hover:scale-105"
         >
             <div className="flex flex-col items-center pt-4 px-2">
                 {/* Image */}
@@ -149,14 +149,14 @@ const FlashDeals = ({ flashDeals, addToCart }) => {
                 <div className='w-full flex flex-col gap-2 mt-2'>
                     <button
                         // onClick={handleBuyNow}
-                        className='w-full text-xs md:text-sm font-semibold text-white bg-gray-300 hover:bg-blue-400 px-2 py-1 rounded-md'
+                        className='w-full text-xs md:text-sm font-semibold text-white bg-gray-300 hover:bg-blue-400 px-2 py-1 cursor-pointer rounded-md'
                     >
                         Buy Now
                     </button>
                     <button
                         disabled={isButtonDisabled}
                         onClick={handleAddToCart}
-                        className={`w-full text-xs md:text-sm font-semibold text-white bg-gray-700  px-2 py-1 rounded-md ${isButtonDisabled ? "cursor-not-allowed opacity-50" : "hover:bg-gray-600"}`}
+                        className={`w-full text-xs md:text-sm font-semibold text-white bg-gray-700  px-2 py-1 cursor-pointer rounded-md ${isButtonDisabled ? "cursor-not-allowed opacity-50" : "hover:bg-gray-600"}`}
                     >
                         {isButtonDisabled ? 'Adding...' : 'Add to Cart'}
                     </button>

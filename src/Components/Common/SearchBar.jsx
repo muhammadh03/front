@@ -27,6 +27,7 @@ const SearchBar = () => {
             <h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-black ml-2">TEKCITY</h1>
           </div>
 
+          {/* Icons for mobile screens */}
           <div className="md:hidden flex items-center gap-6">
             {/* Account */}
             <div className="relative flex items-center">
@@ -37,8 +38,8 @@ const SearchBar = () => {
 
             {isAccountOpen && (
               <div className='absolute top-[6rem] right-[4.8rem] bg-blue-100 text-gray-500 text-sm flex flex-col gap-2 p-4 z-50 rounded-md'>
-                <Link className='hover:text-blue-700'>Register</Link>
-                <Link className='hover:text-blue-700'>Login</Link>
+                <Link to="/login" className='hover:text-blue-700'>Login</Link>
+                <Link to="/register" className='hover:text-blue-700'>Register</Link>
               </div>
             )}
 
@@ -73,8 +74,8 @@ const SearchBar = () => {
           </button>
         </div>
 
+        {/* Icons for medium and large screens */}
         <div className="hidden md:flex items-center gap-6">
-
           {/* Account */}
           <div className="relative flex items-center">
             <button onClick={toggleAccount} className='text-gray-600 hover:text-black'>
@@ -84,8 +85,8 @@ const SearchBar = () => {
 
           {isAccountOpen && (
             <div className='absolute top-[7.5rem] right-[5.5rem] bg-blue-100 text-gray-500 flex flex-col gap-2 p-4 z-50 border border-gray-300 rounded-md'>
-              <Link className='hover:text-blue-700'>Register</Link>
-              <Link className='hover:text-blue-700'>Login</Link>
+              <Link to="/login" className='hover:text-blue-700'>Login</Link>
+              <Link to="/register" className='hover:text-blue-700'>Register</Link>
             </div>
           )}
 
