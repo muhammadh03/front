@@ -16,14 +16,15 @@ const App = () => {
         <ScrollToTop />
         <Toaster position='top-right' />
         <Routes>
-          {/* Standalone login page */}
-          {/* <Route path="/login" element={<Login />} /> */}
+          {/* Standalone login and register page */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
           {/* All other pages wrapped in UserLayout */}
           <Route path="/" element={<UserLayout />}>
             <Route index element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            {/* <Route path="/login" element={<Login />} /> */}
+            {/* <Route path="/register" element={<Register />} /> */}
             <Route path="/:category/collections/all" element={<Collection />} />
             <Route path="/flash-deals/collections/all" element={<FlashDealsCollection />} />
             <Route path='product/:id' element={<ProductDetails />} />
