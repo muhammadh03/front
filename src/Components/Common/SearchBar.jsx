@@ -1,21 +1,41 @@
 import { HiMagnifyingGlass, HiOutlineHeart, HiOutlineShoppingBag, HiOutlineUser } from 'react-icons/hi2';
 import Logo from '../../assets/logo.png';
 import CartDrawer from '../Layout/CartDrawer';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const SearchBar = () => {
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isAccountOpen, setIsAccountOpen] = useState(false);
+  const accountRef = useRef(null);
 
   const toggleCartDrawer = () => {
     setDrawerOpen(!drawerOpen);
+    setIsAccountOpen(false);
   };
 
   const toggleAccount = () => {
     setIsAccountOpen(!isAccountOpen);
+    setDrawerOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (accountRef.current && !accountRef.current.contains(event.target)) {
+        setIsAccountOpen(false);
+      }
+    };
+
+    if (isAccountOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+
+  }, [isAccountOpen]);
 
   return (
     <div className="bg-blue-100">
@@ -30,18 +50,18 @@ const SearchBar = () => {
           {/* Icons for mobile screens */}
           <div className="md:hidden flex items-center gap-6">
             {/* Account */}
-            <div className="relative flex items-center">
+            <div className="relative flex items-center" ref={accountRef}>
               <button onClick={toggleAccount} className='text-gray-600 hover:text-black'>
                 <HiOutlineUser className="h-6 w-6 cursor-pointer" />
               </button>
-            </div>
 
-            {isAccountOpen && (
-              <div className='absolute top-[6rem] right-[4.8rem] bg-blue-100 text-gray-500 text-sm flex flex-col gap-2 p-4 z-50 rounded-md'>
-                <Link to="/login" className='hover:text-blue-700'>Login</Link>
-                <Link to="/register" className='hover:text-blue-700'>Register</Link>
-              </div>
-            )}
+              {isAccountOpen && (
+                <div className='absolute top-20 -right-8 bg-blue-100 text-gray-500 text-sm flex flex-col gap-2 p-4 z-50 rounded-md'>
+                  <Link to="/login" className='hover:text-blue-700'>Login</Link>
+                  <Link to="/register" className='hover:text-blue-700'>Register</Link>
+                </div>
+              )}
+            </div>
 
             {/* Wishlist */}
             <div className="flex items-center">
@@ -77,18 +97,18 @@ const SearchBar = () => {
         {/* Icons for medium and large screens */}
         <div className="hidden md:flex items-center gap-6">
           {/* Account */}
-          <div className="relative flex items-center">
+          <div className="relative flex items-center" ref={accountRef}>
             <button onClick={toggleAccount} className='text-gray-600 hover:text-black'>
               <HiOutlineUser className="h-6 w-6 cursor-pointer" />
             </button>
-          </div>
 
-          {isAccountOpen && (
-            <div className='absolute top-[7.5rem] right-[5.5rem] bg-blue-100 text-gray-500 flex flex-col gap-2 p-4 z-50 border border-gray-300 rounded-md'>
-              <Link to="/login" className='hover:text-blue-700'>Login</Link>
-              <Link to="/register" className='hover:text-blue-700'>Register</Link>
-            </div>
-          )}
+            {isAccountOpen && (
+              <div className='absolute top-13 -right-9 bg-blue-100 text-gray-500 flex flex-col gap-2 p-4 z-50 border border-gray-300 rounded-md'>
+                <Link to="/login" className='hover:text-blue-700'>Login</Link>
+                <Link to="/register" className='hover:text-blue-700'>Register</Link>
+              </div>
+            )}
+          </div>
 
           {/* Wishlist */}
           <div className="flex items-center">

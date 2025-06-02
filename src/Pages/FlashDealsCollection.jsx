@@ -5,7 +5,6 @@ import { IoFilter } from 'react-icons/io5';
 
 // import { updateRecentlyViewed } from '../Utils/recentlyViewed';
 import BreadCrumbs from '../Components/Common/BreadCrumbs';
-import FilterSidebar from '../Components/Products/FilterSidebar';
 import FlashDeals from '../Components/Products/FlashDeals';
 import SortOptions from '../Components/Products/SortOptions';
 import AdvanceFilter from '../Components/Products/AdvanceFilter';
@@ -112,12 +111,7 @@ const FlashDealsCollection = () => {
                     </div>
                 </div>
 
-                <div className='container mx-auto'>
-                    {/* Filter Sidebar */}
-                    {/* <div className='hidden md:block md:w-[25%] lg:w-[20%]'>
-                    <FilterSidebar />
-                </div> */}
-
+                <div className='container mx-auto mt-8'>
                     {/* Flash Deals */}
                     <div className='w-full'>
                         <div className='flex items-center justify-between text-gray-700 border-2 border-gray-200 py-1.5 lg:py-2 px-3 lg:px-4 bg-blue-100 rounded-sm'>
@@ -140,17 +134,8 @@ const FlashDealsCollection = () => {
                                 <SortOptions />
                             </div>
                         </div>
-                        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8 mt-6'>
-                            {/* {flashDealsDetails.map((product) => (
-                            <FlashDeals key={product._id} product={product} />
-                        ))} */}
-                            {flashDealsDetails.map((flashDeals) => (
-                                <FlashDeals
-                                    key={flashDeals._id}
-                                    flashDeals={flashDeals}
-                                    addToCart={addToCart}
-                                />
-                            ))}
+                        <div className='mt-6'>
+                            <FlashDeals key={flashDealsDetails._id} flashDeals={flashDealsDetails} addToCart={addToCart} />
                         </div>
                     </div>
                 </div>

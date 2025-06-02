@@ -405,33 +405,7 @@ const Home = () => {
 
             {/* FLASH DEALS */}
             <div className='container mx-auto mt-6'>
-                <div className='flex items-center justify-between'>
-                    <div>
-                        <h1 className='text-base md:text-2xl font-bold text-blue-600'>
-                            Flash Deals
-                        </h1>
-                        <p className='w-28 md:w-auto text-xs md:text-base text-gray-500 '>
-                            Special products in this month
-                        </p>
-                    </div>
-
-                    <div className='w-52 md:w-auto flex gap-2 md:gap-4 mt-10.5 md:mt-8 text-[10px] md:text-base text-gray-500'>
-                        <Link to="/flash-deals/collections/all" className='hover:text-blue-600'>All</Link>
-                        <Link to="/flash-deals/collections/all" className='hover:text-blue-600 truncate'>BEST SELLERS</Link>
-                        <Link to="/flash-deals/collections/all" className='hover:text-blue-600 truncate'>MOST VIEWED</Link>
-                        <Link to="/flash-deals/collections/all" className='hover:text-blue-600 truncate'>TOP BRANDS</Link>
-                    </div>
-                </div>
-
-                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mt-6'>
-                    {flashDealsDetails.map((flashDeals) => (
-                        <FlashDeals
-                            key={flashDeals._id}
-                            flashDeals={flashDeals}
-                            addToCart={addToCart}
-                        />
-                    ))}
-                </div>
+                <FlashDeals key={flashDealsDetails._id} flashDeals={flashDealsDetails} addToCart={addToCart} />
             </div>
 
             {/* DAILY OFFERS */}
