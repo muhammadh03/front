@@ -8,6 +8,8 @@ const SearchBar = () => {
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isAccountOpen, setIsAccountOpen] = useState(false);
+  // const mobileAccountRef = useRef(null);
+  // const desktopAccountRef = useRef(null);
   const accountRef = useRef(null);
 
   const toggleCartDrawer = () => {
@@ -22,7 +24,11 @@ const SearchBar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (accountRef.current && !accountRef.current.contains(event.target)) {
+      if (
+        accountRef.current && !accountRef.current.contains(event.target)
+        // (mobileAccountRef.current && !mobileAccountRef.current.contains(event.target)) &&
+        // (desktopAccountRef.current && !desktopAccountRef.current.contains(event.target))
+      ) {
         setIsAccountOpen(false);
       }
     };
@@ -38,7 +44,7 @@ const SearchBar = () => {
   }, [isAccountOpen]);
 
   return (
-    <div className="bg-blue-100">
+    <div className="bg-blue-100" ref={accountRef}>
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4 lg:gap-32">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
@@ -50,7 +56,7 @@ const SearchBar = () => {
           {/* Icons for mobile screens */}
           <div className="md:hidden flex items-center gap-6">
             {/* Account */}
-            <div className=" flex items-center" >
+            <div className="flex items-center">
               <button onClick={toggleAccount} className='text-gray-600 hover:text-black'>
                 <HiOutlineUser className="h-6 w-6 cursor-pointer" />
               </button>
@@ -90,7 +96,7 @@ const SearchBar = () => {
         {/* Icons for medium and large screens */}
         <div className="hidden md:flex items-center gap-6">
           {/* Account */}
-          <div className=" flex items-center" >
+          <div className="flex items-center">
             <button onClick={toggleAccount} className='text-gray-600 hover:text-black'>
               <HiOutlineUser className="h-6 w-6 cursor-pointer" />
             </button>
@@ -115,7 +121,7 @@ const SearchBar = () => {
         </div>
       </div>
       {isAccountOpen && (
-        <div ref={accountRef} className='absolute top-24 right-0 w-36 md:w-40 bg-blue-100 text-gray-500 text-sm flex flex-col gap-2 p-4 z-50 rounded-md'>
+        <div className='absolute top-24 right-0 w-36 md:w-40 bg-blue-100 text-gray-500 text-sm flex flex-col gap-2 p-4 z-50 rounded-md'>
           <Link
             to="/login"
             className='hover:text-blue-700'
