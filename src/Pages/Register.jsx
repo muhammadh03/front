@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Register = () => {
     return (
-        <div className='bg-black/70 fixed top-0 left-0 w-full mx-auto h-screen flex items-center justify-center overflow-y-scroll  lg:overflow-auto hide-scrollbar'>
-            {/* <div className='mx-auto lg:h-screen flex items-center justify-center'> */}
+        <div className='bg-white min-h-screen flex items-center justify-center overflow-auto'>
             <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col gap-6 bg-white text-gray-500 py-4 px-6 rounded-sm shadow-xl shadow-gray-400 border-2 border-blue-200'>
                 <div className='text-center'>
                     <h1 className='text-2xl text-blue-400 font-semibold tracking-wide'>REGISTER</h1>
@@ -68,7 +67,6 @@ const Register = () => {
                     <Link to="/login" className='hover:text-blue-400'>Login</Link>
                 </div>
             </div>
-            {/* </div> */}
         </div>
     )
 }

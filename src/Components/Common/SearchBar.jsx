@@ -50,17 +50,10 @@ const SearchBar = () => {
           {/* Icons for mobile screens */}
           <div className="md:hidden flex items-center gap-6">
             {/* Account */}
-            <div className="relative flex items-center" ref={accountRef}>
+            <div className=" flex items-center" >
               <button onClick={toggleAccount} className='text-gray-600 hover:text-black'>
                 <HiOutlineUser className="h-6 w-6 cursor-pointer" />
               </button>
-
-              {isAccountOpen && (
-                <div className='absolute top-20 -right-8 bg-blue-100 text-gray-500 text-sm flex flex-col gap-2 p-4 z-50 rounded-md'>
-                  <Link to="/login" className='hover:text-blue-700'>Login</Link>
-                  <Link to="/register" className='hover:text-blue-700'>Register</Link>
-                </div>
-              )}
             </div>
 
             {/* Wishlist */}
@@ -97,17 +90,10 @@ const SearchBar = () => {
         {/* Icons for medium and large screens */}
         <div className="hidden md:flex items-center gap-6">
           {/* Account */}
-          <div className="relative flex items-center" ref={accountRef}>
+          <div className=" flex items-center" >
             <button onClick={toggleAccount} className='text-gray-600 hover:text-black'>
               <HiOutlineUser className="h-6 w-6 cursor-pointer" />
             </button>
-
-            {isAccountOpen && (
-              <div className='absolute top-13 -right-9 bg-blue-100 text-gray-500 flex flex-col gap-2 p-4 z-50 border border-gray-300 rounded-md'>
-                <Link to="/login" className='hover:text-blue-700'>Login</Link>
-                <Link to="/register" className='hover:text-blue-700'>Register</Link>
-              </div>
-            )}
           </div>
 
           {/* Wishlist */}
@@ -128,6 +114,24 @@ const SearchBar = () => {
           </div>
         </div>
       </div>
+      {isAccountOpen && (
+        <div ref={accountRef} className='absolute top-24 right-0 w-36 md:w-40 bg-blue-100 text-gray-500 text-sm flex flex-col gap-2 p-4 z-50 rounded-md'>
+          <Link
+            to="/login"
+            className='hover:text-blue-700'
+            onClick={() => setIsAccountOpen(false)}
+          >
+            Login
+          </Link>
+          <Link
+            to="/register"
+            className='hover:text-blue-700'
+            onClick={() => setIsAccountOpen(false)}
+          >
+            Register
+          </Link>
+        </div>
+      )}
 
       <CartDrawer drawerOpen={drawerOpen} toggleCartDrawer={toggleCartDrawer} />
     </div>

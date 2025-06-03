@@ -11,15 +11,14 @@ const Login = () => {
     // }
 
     return (
-        <div className='bg-black/70 fixed top-0 left-0 w-full mx-auto h-screen flex items-center justify-center overflow-auto'>
+        <div className='bg-white min-h-screen flex items-center justify-center overflow-auto'>
             {/* <div>
                 <button onClick={toggleClose}>
                     <IoMdCloseCircle className='h-5 w-5 md:h-6 md:w-6 text-blue-400 hover:text-blue-600' />
                 </button>
             </div> */}
             {/* {close && */}
-            {/* <div className='flex items-center justify-center'> */}
-            <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col gap-4 bg-white text-gray-500 py-4 px-6 rounded-sm shadow-xl shadow-gray-400 border-2 border-blue-200'>
+            <div className='w-full max-w-md flex flex-col gap-4 bg-white text-gray-500 py-4 px-6 rounded-sm shadow-xl shadow-gray-400 border-2 border-blue-200'>
                 <div className='text-center'>
                     <h1 className='text-2xl text-blue-400 font-semibold tracking-wide'>LOGIN</h1>
                 </div>
@@ -60,7 +59,6 @@ const Login = () => {
                     <Link to="/register" className='hover:text-blue-400'>Register</Link>
                 </div>
             </div>
-            {/* </div> */}
             {/* } */}
         </div>
     )
