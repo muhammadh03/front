@@ -40,7 +40,7 @@ const Checkout = () => {
                 <h1 className='text-4xl font-bold tracking-wide'>CHECKOUT</h1>
             </div>
             <div className='container mx-auto'>
-                <div className='flex flex-col lg:flex-row gap-4 mt-8'>
+                <div className='flex flex-col-reverse lg:flex-row gap-4 mt-8'>
                     <div className='w-full lg:w-1/2'>
                         <div>
                             <div>
