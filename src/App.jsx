@@ -8,6 +8,7 @@ import ScrollToTop from './Components/Common/ScrollToTop';
 import FlashDealsCollection from './Pages/FlashDealsCollection';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
+import Checkout from './Components/Cart/Checkout';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/:category/collections/all" element={<Collection />} />
             <Route path="/flash-deals/collections/all" element={<FlashDealsCollection />} />
             <Route path='product/:id' element={<ProductDetails />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Route>
         </Routes>
       </BrowserRouter>

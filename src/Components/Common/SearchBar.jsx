@@ -8,8 +8,6 @@ const SearchBar = () => {
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isAccountOpen, setIsAccountOpen] = useState(false);
-  // const mobileAccountRef = useRef(null);
-  // const desktopAccountRef = useRef(null);
   const accountRef = useRef(null);
 
   const toggleCartDrawer = () => {
@@ -26,8 +24,6 @@ const SearchBar = () => {
     const handleClickOutside = (event) => {
       if (
         accountRef.current && !accountRef.current.contains(event.target)
-        // (mobileAccountRef.current && !mobileAccountRef.current.contains(event.target)) &&
-        // (desktopAccountRef.current && !desktopAccountRef.current.contains(event.target))
       ) {
         setIsAccountOpen(false);
       }
@@ -44,8 +40,8 @@ const SearchBar = () => {
   }, [isAccountOpen]);
 
   return (
-    <div className="bg-blue-100" ref={accountRef}>
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4 lg:gap-32">
+    <div className="bg-blue-100">
+      <div ref={accountRef} className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4 lg:gap-32">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <div className="flex items-center">
@@ -119,9 +115,8 @@ const SearchBar = () => {
             </button>
           </div>
         </div>
-      </div>
-      {isAccountOpen && (
-        <div className='absolute top-24 right-0 w-36 md:w-40 bg-blue-100 text-gray-500 text-sm flex flex-col gap-2 p-4 z-50 rounded-md'>
+
+        <div className={`absolute top-24 right-0 w-36 md:w-40 bg-blue-100 text-gray-500 text-sm flex flex-col gap-2 p-4 z-50 rounded-md ${isAccountOpen ? 'block' : 'hidden'}`}>
           <Link
             to="/login"
             className='hover:text-blue-700'
@@ -136,8 +131,22 @@ const SearchBar = () => {
           >
             Register
           </Link>
+          <Link
+            to="/profile"
+            className='hover:text-blue-700'
+            onClick={() => setIsAccountOpen(false)}
+          >
+            Register
+          </Link>
+          <Link
+            to="/myOrders"
+            className='hover:text-blue-700'
+            onClick={() => setIsAccountOpen(false)}
+          >
+            Register
+          </Link>
         </div>
-      )}
+      </div>
 
       <CartDrawer drawerOpen={drawerOpen} toggleCartDrawer={toggleCartDrawer} />
     </div>
