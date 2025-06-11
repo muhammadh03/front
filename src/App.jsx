@@ -49,7 +49,7 @@ const App = () => {
             <Route path="/flash-deals/collections/all" element={<FlashDealsCollection />} />
             <Route path='product/:id' element={<ProductDetails />} />
             <Route path="/checkout" element={<Checkout />} />
-            {/* <Route path="order/:id" element={<OrderDetails />} /> */}
+            <Route path="order/:id" element={<OrderDetails />} />
             <Route path="order-confirmation" element={<OrderConfirmation />} />
           </Route>
         </Routes>

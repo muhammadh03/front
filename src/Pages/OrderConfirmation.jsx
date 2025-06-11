@@ -32,7 +32,7 @@ const checkoutProducts = {
         country: "United States",
         zip: "10001"
     },
-    paymentMethod: "Credit Card",
+    paymentMethod: "Paypal",
     shippingMethod: "FedEx",
     shippingCost: 10.00,
     tax: 5.00,
@@ -40,6 +40,13 @@ const checkoutProducts = {
 };
 
 const OrderConfirmation = () => {
+
+    const calculateEstimatedDelivery = (orderPlacedAt) => {
+        const orderDate = new Date(orderPlacedAt);
+        orderDate.setDate(orderDate.getDate() + 10);
+        return orderDate.toLocaleDateString();
+    };
+
     return (
         <div className='bg-blue-100 container mx-auto'>
             <div className='mb-28'>
@@ -56,17 +63,17 @@ const OrderConfirmation = () => {
                         <div className='bg-blue-500/85 rounded-r-md rounded-l-md'>
                             <div className='flex justify-between text-white p-4'>
                                 <div className='flex flex-col gap-2'>
-                                    <p className='text-sm md:text-lg font-semibold tracking-wide'>Order ID: #12345</p>
-                                    <p className='text-sm md:text-base'>Order Date: 2023-06-01</p>
+                                    <p className='text-sm md:text-lg font-semibold tracking-wide'>Order ID : #{checkoutProducts._id}</p>
+                                    <p className='text-sm md:text-base'>Order Date : {new Date(checkoutProducts.orderPlacedAt).toDateString()}</p>
                                 </div>
                                 <div className='flex text-end'>
-                                    <p className='text-sm md:text-base'>Estimated Delivery Date: 2023-06-05</p>
+                                    <p className='text-sm md:text-base'>Estimated Delivery Date : {calculateEstimatedDelivery(checkoutProducts.orderPlacedAt)} </p>
                                 </div>
                             </div>
 
                             <div className='bg-white rounded-r-md rounded-l-md'>
                                 {checkoutProducts.checkoutItems.map((item) => (
-                                    <div>
+                                    <div key={item.productId}>
                                         <div className='py-4 px-6 flex flex-col md:flex-row justify-between text-gray-700'>
                                             <div className='flex items-start md:items-start gap-4'>
                                                 <img src={item.image} alt="order_image" className='w-20 md:w-28' />
@@ -91,7 +98,7 @@ const OrderConfirmation = () => {
                                 <div className='py-4 px-6 flex flex-col md:flex-row justify-between gap-2 md:gap-0'>
                                     <div>
                                         <p className='text-sm md:text-base lg:text-lg font-semibold tracking-wide'>Payment Method</p>
-                                        <p className='text-sm lg:text-base tracking-wide text-gray-500'>visa **** 1234</p>
+                                        <p className='text-sm lg:text-base tracking-wide text-gray-500'>{checkoutProducts.paymentMethod}</p>
                                     </div>
 
                                     <div>
