@@ -1,31 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Breadcrumbs from '../Common/BreadCrumbs';
 import laptop from "../../assets/products/laptop.png";
 import playstationFive from "../../assets/products/spiderman-playstation-5.png";
+import PaypalButton from './PaypalButton';
+import { useNavigate } from 'react-router-dom';
 
 
-const orderProducts = [
-    {
-        productId: 1,
-        name: "Lenovo LOQ 15IAX9 Gaming Laptop",
-        // size: "M",
-        color: "Gray",
-        quantity: 1,
-        price: 650.00,
-        image: laptop
-    },
-    {
-        productId: 2,
-        name: "PlayStation 5 Marvel's Spider-Man 2 Limited Edition",
-        // size: "M",
-        color: "Red",
-        quantity: 1,
-        price: 560.00,
-        image: playstationFive
-    }
-]
+const orderProducts = {
+    products: [
+        {
+            productId: 1,
+            name: "Lenovo LOQ 15IAX9 Gaming Laptop",
+            color: "Gray",
+            quantity: 1,
+            price: 650.00,
+            image: laptop
+        },
+        {
+            productId: 2,
+            name: "PlayStation 5 Marvel's Spider-Man 2 Limited Edition",
+            color: "Red",
+            quantity: 1,
+            price: 560.00,
+            image: playstationFive
+        }
+    ],
+    totalPrice: 1210.00,
+}
 
 const Checkout = () => {
+
+    const navigate = useNavigate();
+    const [checkoutId, setCheckoutId] = useState(null);
+    const [shippingAddress, setShippingAddress] = useState({
+        firstName: "",
+        lastName: "",
+        address: "",
+        city: "",
+        postalCode: "",
+        country: "",
+        phone: "",
+        message: ""
+    });
+
+    const handleCreateCheckout = (e) => {
+        e.preventDefault();
+        setCheckoutId(123);
+    };
+
+
+    const handlePaymentSuccess = (details) => {
+        console.log("Payment successful", details);
+
+        // Perform any additional actions
+
+        // Redirect to the order details page
+        navigate(`/order-confirmation`);
+    }
+
     return (
         <div>
             {/* BreadCrumbs */}
@@ -62,7 +94,7 @@ const Checkout = () => {
                             <div>
                                 <h3 className='text-lg font-semibold'>Shipping Details</h3>
                             </div>
-                            <div className='mt-2 flex flex-col gap-4'>
+                            <form onSubmit={handleCreateCheckout} className='mt-2 flex flex-col gap-4'>
                                 <div className='grid grid-cols-2 gap-2'>
                                     <div>
                                         <label htmlFor="firstName">First Name</label>
@@ -70,7 +102,10 @@ const Checkout = () => {
                                             type="text"
                                             name="firstName"
                                             id="firstName"
+                                            value={shippingAddress.firstName}
+                                            onChange={(e) => setShippingAddress({ ...shippingAddress, firstName: e.target.value })}
                                             className='w-full focus:outline-none border-1 border-gray-300 rounded-sm py-1 px-2'
+                                            required
                                         />
                                     </div>
                                     <div>
@@ -79,7 +114,10 @@ const Checkout = () => {
                                             type="text"
                                             name="lastName"
                                             id="lastName"
+                                            value={shippingAddress.lastName}
+                                            onChange={(e) => setShippingAddress({ ...shippingAddress, lastName: e.target.value })}
                                             className='w-full focus:outline-none border-1 border-gray-300 rounded-sm py-1 px-2'
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -89,7 +127,10 @@ const Checkout = () => {
                                         type="text"
                                         name="address"
                                         id="address"
+                                        value={shippingAddress.address}
+                                        onChange={(e) => setShippingAddress({ ...shippingAddress, address: e.target.value })}
                                         className='w-full focus:outline-none border-1 border-gray-300 rounded-sm py-1 px-2'
+                                        required
                                     />
                                 </div>
                                 <div className='grid grid-cols-2 gap-2'>
@@ -99,6 +140,8 @@ const Checkout = () => {
                                             type="tel"
                                             name="city"
                                             id="city"
+                                            value={shippingAddress.city}
+                                            onChange={(e) => setShippingAddress({ ...shippingAddress, city: e.target.value })}
                                             className='w-full focus:outline-none border-1 border-gray-300 rounded-sm py-1 px-2'
                                         />
                                     </div>
@@ -108,6 +151,8 @@ const Checkout = () => {
                                             type="number"
                                             name="postalCode"
                                             id="postalCode"
+                                            value={shippingAddress.postalCode}
+                                            onChange={(e) => setShippingAddress({ ...shippingAddress, postalCode: e.target.value })}
                                             className='w-full focus:outline-none border-1 border-gray-300 rounded-sm py-1 px-2'
                                         />
                                     </div>
@@ -119,6 +164,8 @@ const Checkout = () => {
                                             type="text"
                                             name="country"
                                             id="country"
+                                            value={shippingAddress.country}
+                                            onChange={(e) => setShippingAddress({ ...shippingAddress, country: e.target.value })}
                                             className='w-full focus:outline-none border-1 border-gray-300 rounded-sm py-1 px-2'
                                         />
                                     </div>
@@ -128,6 +175,8 @@ const Checkout = () => {
                                             type="tel"
                                             name="phone"
                                             id="phone"
+                                            value={shippingAddress.phone}
+                                            onChange={(e) => setShippingAddress({ ...shippingAddress, phone: e.target.value })}
                                             className='w-full focus:outline-none border-1 border-gray-300 rounded-sm py-1 px-2'
                                         />
                                     </div>
@@ -137,17 +186,35 @@ const Checkout = () => {
                                     <textarea
                                         name="message"
                                         id="message"
+                                        value={shippingAddress.message}
+                                        onChange={(e) => setShippingAddress({ ...shippingAddress, message: e.target.value })}
                                         className='w-full focus:outline-none border-1 border-gray-300 rounded-sm py-2 px-2'
                                     ></textarea>
                                 </div>
                                 <div className=''>
-                                    <button className='w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-sm'>
-                                        <span className='text-lg font-semibold'>Continue to payment</span>
-                                    </button>
+                                    {!checkoutId ? (
+                                        <button type='submit' className='w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-sm cursor-pointer'>
+                                            <span className='text-lg font-semibold'>Continue to payment</span>
+                                        </button>
+                                    ) : (
+                                        <div>
+                                            <h3 className='text-lg font-semibold'>
+                                                Pay with Paypal
+                                            </h3>
+
+                                            {/* Paypal Component */}
+                                            <PaypalButton
+                                                amount={100}
+                                                onSuccess={handlePaymentSuccess}
+                                                onError={(error) => alert("Payment failed. Please try again")}
+                                            />
+                                        </div>
+                                    )}
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
+
                     <div className='w-full lg:w-1/2 bg-blue-100/50 rounded-sm py-2 px-4'>
                         <div>
                             <div>
@@ -156,7 +223,7 @@ const Checkout = () => {
                             <div className='border-2 border-blue-500'>
                             </div>
                             <div className='mt-6'>
-                                {orderProducts.map((product, index) => (
+                                {orderProducts.products.map((product, index) => (
                                     <div key={index} className='flex items-start justify-between py-4 border-b-4 border-white'>
                                         <img
                                             src={product.image}
@@ -184,16 +251,16 @@ const Checkout = () => {
                             </div>
                             <div>
                                 <div className='flex justify-between py-4 border-b-4 border-white'>
-                                    <h1 className='text-lg font-semibold'>Subtotal</h1>
-                                    <h1 className='text-lg font-semibold'>$1400</h1>
+                                    <h1 className='text-lg font-semibold tracking-wider'>Subtotal</h1>
+                                    <p className='text-lg font-semibold tracking-wider'> ${orderProducts.totalPrice?.toLocaleString()} </p>
                                 </div>
                                 <div className='flex justify-between py-4 border-b-4 border-white'>
-                                    <h1 className='text-lg font-semibold'>Shipping</h1>
-                                    <h1 className='text-lg font-semibold'>Free</h1>
+                                    <h1 className='text-lg font-semibold tracking-wider'>Shipping</h1>
+                                    <p className='text-lg font-semibold tracking-wider'>Free</p>
                                 </div>
                                 <div className='flex justify-between py-4'>
-                                    <h1 className='text-lg font-semibold'>Total</h1>
-                                    <h1 className='text-lg font-semibold'>$1400</h1>
+                                    <h1 className='text-lg font-semibold tracking-wider'>Total</h1>
+                                    <p className='text-lg font-semibold tracking-wider'>${orderProducts.totalPrice?.toLocaleString()}</p>
                                 </div>
                             </div>
                         </div>

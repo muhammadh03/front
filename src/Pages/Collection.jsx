@@ -23,217 +23,429 @@ import msiOne from "../assets/products/laptops/msi-1.png";
 import msiTwo from "../assets/products/laptops/msi-2.png";
 import msiThree from "../assets/products/laptops/msi-3.png";
 import msiFour from "../assets/products/laptops/msi-4.png";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AdvanceFilter from '../Components/Products/AdvanceFilter';
 
 
-const laptopDetails = [
-    {
-        _id: 1,
-        brand: "Apple",
-        title: "PlayStation 5 Marvel's Spider-Man 2 Limited Edition",
-        price: "560.00",
-        image: appleOne,
-        available: "38",
-        sold: "12",
-        rating: "4.5",
-        reviews: "12"
-    },
-    {
-        _id: 2,
-        brand: "Apple",
-        title: "Lenovo LOQ 15IAX9 Gaming Laptop",
-        price: "650.00",
-        image: appleTwo,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 3,
-        brand: "Apple",
-        title: "DJI Avatar Fly Smart Combo w/ FPV Goggles V2",
-        price: "970.00",
-        image: appleThree,
-        available: "8",
-        sold: "4",
-        rating: "4.8",
-        reviews: "4"
-    },
-    {
-        _id: 4,
-        brand: "Dell",
-        title: "Gaming PC - Intel Core i7-14700KF 20 Cores 28 Threads",
-        price: "3300.00",
-        image: dellOne,
-        available: "22",
-        sold: "12",
-        rating: "4.9",
-        reviews: "10"
-    },
-    {
-        _id: 5,
-        brand: "Dell",
-        title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
-        price: "650.00",
-        image: dellTwo,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 6,
-        brand: "Dell",
-        title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
-        price: "650.00",
-        image: dellThree,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 7,
-        brand: "Dell",
-        title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
-        price: "650.00",
-        image: dellFour,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 8,
-        brand: "HP",
-        title: "Battlefield Blaze Gaming Setup",
-        price: "650.00",
-        image: hpOne,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 9,
-        brand: "HP",
-        title: "Thrustmaster T598 Racing Wheel",
-        price: "550.00",
-        image: hpTwo,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 10,
-        brand: "HP",
-        title: "Gainward GeForce RTX 3070 Phoenix V1 Edition",
-        price: "514.00",
-        image: hpThree,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 11,
-        brand: "Lenovo",
-        title: "MSI GeForce RTX 4090 VENTUS 3X OC Graphics Card",
-        price: "4857.00",
-        image: lenovoOne,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 12,
-        brand: "Lenovo",
-        title: "HUAWEI Watch GT 5 Pro 46mm Smartwatch",
-        price: "264.00",
-        image: lenovoTwo,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 13,
-        brand: "Lenovo",
-        title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
-        price: "264.00",
-        image: lenovoThree,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 14,
-        brand: "Lenovo",
-        title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
-        price: "264.00",
-        image: lenovoFour,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 15,
-        brand: "MSI",
-        title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
-        price: "264.00",
-        image: msiOne,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 16,
-        brand: "MSI",
-        title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
-        price: "264.00",
-        image: msiTwo,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 17,
-        brand: "MSI",
-        title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
-        price: "264.00",
-        image: msiThree,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    },
-    {
-        _id: 18,
-        brand: "MSI",
-        title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
-        price: "264.00",
-        image: msiFour,
-        available: "15",
-        sold: "5",
-        rating: "4.8",
-        reviews: "3"
-    }
-];
+// const laptopDetails = [
+//     {
+//         _id: 1,
+//         brand: "Apple",
+//         title: "PlayStation 5 Marvel's Spider-Man 2 Limited Edition",
+//         price: "560.00",
+//         image: appleOne,
+//         available: "38",
+//         sold: "12",
+//         rating: "4.5",
+//         reviews: "12"
+//     },
+//     {
+//         _id: 2,
+//         brand: "Apple",
+//         title: "Lenovo LOQ 15IAX9 Gaming Laptop",
+//         price: "650.00",
+//         image: appleTwo,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 3,
+//         brand: "Apple",
+//         title: "DJI Avatar Fly Smart Combo w/ FPV Goggles V2",
+//         price: "970.00",
+//         image: appleThree,
+//         available: "8",
+//         sold: "4",
+//         rating: "4.8",
+//         reviews: "4"
+//     },
+//     {
+//         _id: 4,
+//         brand: "Dell",
+//         title: "Gaming PC - Intel Core i7-14700KF 20 Cores 28 Threads",
+//         price: "3300.00",
+//         image: dellOne,
+//         available: "22",
+//         sold: "12",
+//         rating: "4.9",
+//         reviews: "10"
+//     },
+//     {
+//         _id: 5,
+//         brand: "Dell",
+//         title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
+//         price: "650.00",
+//         image: dellTwo,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 6,
+//         brand: "Dell",
+//         title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
+//         price: "650.00",
+//         image: dellThree,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 7,
+//         brand: "Dell",
+//         title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
+//         price: "650.00",
+//         image: dellFour,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 8,
+//         brand: "HP",
+//         title: "Battlefield Blaze Gaming Setup",
+//         price: "650.00",
+//         image: hpOne,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 9,
+//         brand: "HP",
+//         title: "Thrustmaster T598 Racing Wheel",
+//         price: "550.00",
+//         image: hpTwo,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 10,
+//         brand: "HP",
+//         title: "Gainward GeForce RTX 3070 Phoenix V1 Edition",
+//         price: "514.00",
+//         image: hpThree,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 11,
+//         brand: "Lenovo",
+//         title: "MSI GeForce RTX 4090 VENTUS 3X OC Graphics Card",
+//         price: "4857.00",
+//         image: lenovoOne,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 12,
+//         brand: "Lenovo",
+//         title: "HUAWEI Watch GT 5 Pro 46mm Smartwatch",
+//         price: "264.00",
+//         image: lenovoTwo,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 13,
+//         brand: "Lenovo",
+//         title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+//         price: "264.00",
+//         image: lenovoThree,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 14,
+//         brand: "Lenovo",
+//         title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+//         price: "264.00",
+//         image: lenovoFour,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 15,
+//         brand: "MSI",
+//         title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+//         price: "264.00",
+//         image: msiOne,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 16,
+//         brand: "MSI",
+//         title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+//         price: "264.00",
+//         image: msiTwo,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 17,
+//         brand: "MSI",
+//         title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+//         price: "264.00",
+//         image: msiThree,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     },
+//     {
+//         _id: 18,
+//         brand: "MSI",
+//         title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+//         price: "264.00",
+//         image: msiFour,
+//         available: "15",
+//         sold: "5",
+//         rating: "4.8",
+//         reviews: "3"
+//     }
+// ];
 
 const Collection = () => {
 
+    const [products, setProducts] = useState([]);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+
+    useEffect(() => {
+        setTimeout(() => {
+            const fetchedProducts = [
+                {
+                    _id: 1,
+                    brand: "Apple",
+                    title: "PlayStation 5 Marvel's Spider-Man 2 Limited Edition",
+                    price: "560.00",
+                    image: appleOne,
+                    available: "38",
+                    sold: "12",
+                    rating: "4.5",
+                    reviews: "12"
+                },
+                {
+                    _id: 2,
+                    brand: "Apple",
+                    title: "Lenovo LOQ 15IAX9 Gaming Laptop",
+                    price: "650.00",
+                    image: appleTwo,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 3,
+                    brand: "Apple",
+                    title: "DJI Avatar Fly Smart Combo w/ FPV Goggles V2",
+                    price: "970.00",
+                    image: appleThree,
+                    available: "8",
+                    sold: "4",
+                    rating: "4.8",
+                    reviews: "4"
+                },
+                {
+                    _id: 4,
+                    brand: "Dell",
+                    title: "Gaming PC - Intel Core i7-14700KF 20 Cores 28 Threads",
+                    price: "3300.00",
+                    image: dellOne,
+                    available: "22",
+                    sold: "12",
+                    rating: "4.9",
+                    reviews: "10"
+                },
+                {
+                    _id: 5,
+                    brand: "Dell",
+                    title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
+                    price: "650.00",
+                    image: dellTwo,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 6,
+                    brand: "Dell",
+                    title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
+                    price: "650.00",
+                    image: dellThree,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 7,
+                    brand: "Dell",
+                    title: "Hurakan Klipper 3D Printer, Dual-Tone Colors & Mechanical Style",
+                    price: "650.00",
+                    image: dellFour,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 8,
+                    brand: "HP",
+                    title: "Battlefield Blaze Gaming Setup",
+                    price: "650.00",
+                    image: hpOne,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 9,
+                    brand: "HP",
+                    title: "Thrustmaster T598 Racing Wheel",
+                    price: "550.00",
+                    image: hpTwo,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 10,
+                    brand: "HP",
+                    title: "Gainward GeForce RTX 3070 Phoenix V1 Edition",
+                    price: "514.00",
+                    image: hpThree,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 11,
+                    brand: "Lenovo",
+                    title: "MSI GeForce RTX 4090 VENTUS 3X OC Graphics Card",
+                    price: "4857.00",
+                    image: lenovoOne,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 12,
+                    brand: "Lenovo",
+                    title: "HUAWEI Watch GT 5 Pro 46mm Smartwatch",
+                    price: "264.00",
+                    image: lenovoTwo,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 13,
+                    brand: "Lenovo",
+                    title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+                    price: "264.00",
+                    image: lenovoThree,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 14,
+                    brand: "Lenovo",
+                    title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+                    price: "264.00",
+                    image: lenovoFour,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 15,
+                    brand: "MSI",
+                    title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+                    price: "264.00",
+                    image: msiOne,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 16,
+                    brand: "MSI",
+                    title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+                    price: "264.00",
+                    image: msiTwo,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 17,
+                    brand: "MSI",
+                    title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+                    price: "264.00",
+                    image: msiThree,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                },
+                {
+                    _id: 18,
+                    brand: "MSI",
+                    title: "SAMSUNG Galaxy Watch 6 Classic 43mm Smartwatch",
+                    price: "264.00",
+                    image: msiFour,
+                    available: "15",
+                    sold: "5",
+                    rating: "4.8",
+                    reviews: "3"
+                }
+            ];
+            setProducts(fetchedProducts);
+        }, 1000);
+    }, []);
 
     const toggleFilter = () => {
         setIsFilterOpen(!isFilterOpen);
+    }
+
+    const addToCart = (products) => {
+        console.log("Product added to cart:", products);
     }
 
     return (
@@ -272,8 +484,8 @@ const Collection = () => {
                         </div>
                     </div>
                     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8 mt-6'>
-                        {laptopDetails.map((product) => (
-                            <ProductGrid key={product._id} product={product} />
+                        {products.map((product) => (
+                            <ProductGrid key={product._id} product={product} addToCart={addToCart} />
                         ))}
                     </div>
                 </div>

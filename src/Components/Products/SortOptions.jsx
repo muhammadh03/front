@@ -1,12 +1,24 @@
 import React from 'react'
 import { IoIosArrowDown } from 'react-icons/io';
+import { useSearchParams } from 'react-router-dom';
 
 const SortOptions = () => {
+
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const handleSortChange = (e) => {
+        const sortBy = e.target.value;
+        searchParams.set("sortBy", sortBy);
+        setSearchParams(searchParams);
+    };
+
     return (
         <div className='relative border-1 border-gray-300 bg-white rounded-sm w-24 md:w-40 flex items-center justify-between'>
             <select
                 name="sort"
                 id="sort"
+                onChange={handleSortChange}
+                value={searchParams.get("sortBy") || ""}
                 className='text-xs cursor-pointer appearance-none py-0.5 px-1 md:py-1 md:px-2 focus:outline-none'
             >
                 <option value="default" className='text-xs cursor-pointer'>Default</option>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { toast } from 'sonner';
 import BreadCrumbs from '../Common/BreadCrumbs';
 import { FaRegThumbsUp, FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import { HiOutlineHeart, HiOutlineScale } from 'react-icons/hi2';
@@ -110,6 +111,7 @@ const ProductDetails = () => {
     const [mainImage, setMainImage] = useState("null");
     const [selectedColor, setSelectedColor] = useState("null");
     // const [activeSize, setActiveSize] = useState("null");
+    const [buttonDisabled, setButtonDisabled] = useState(false);
 
     useEffect(() => {
         if (selectedProduct?.images?.length > 0) {
@@ -125,6 +127,17 @@ const ProductDetails = () => {
         }
 
     }, [selectedProduct]);
+
+
+    const handleAddToCart = () => {
+        setButtonDisabled(true);
+        setTimeout(() => {
+            toast.success("Product added to cart", {
+                duration: 1000,
+            });
+            setButtonDisabled(false);
+        }, 500);
+    }
 
     return (
         <div>
@@ -324,10 +337,13 @@ const ProductDetails = () => {
 
                                 {/* Buttons */}
                                 <div className='w-full flex items-center gap-4'>
-                                    <button className='bg-gray-500 text-white text-sm font-semibold py-2 px-[2.2rem] md:px-16.5 rounded-sm hover:bg-gray-700'>
-                                        ADD TO CART
+                                    <button
+                                        disabled={buttonDisabled}
+                                        onClick={handleAddToCart}
+                                        className='w-1/2 md:w-1/2 bg-gray-500 text-white text-sm font-semibold py-2 px-8 md:px-16 rounded-sm hover:bg-gray-700'>
+                                        {buttonDisabled ? "ADDING..." : "ADD TO CART"}
                                     </button>
-                                    <button className='bg-gray-500 text-white text-sm font-semibold py-2 px-12 md:px-20 rounded-sm hover:bg-gray-700'>
+                                    <button className='w-1/2 md:w-1/2 bg-gray-500 text-white text-sm font-semibold py-2 px-11 md:px-20 rounded-sm hover:bg-gray-700'>
                                         BUY NOW
                                     </button>
                                 </div>

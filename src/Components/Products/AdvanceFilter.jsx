@@ -300,7 +300,7 @@ const AdvanceFilter = ({ isFilterOpen, toggleFilter }) => {
                             htmlFor="Manufacturer"
                             className='text-sm lg:text-base text-gray-700 font-semibold tracking-wide'
                         >
-                            Graphics Card
+                            Screen Size
                         </label>
                         {graphicCards.map((card, index) => (
                             <div key={index} className='mt-2 text-xs lg:text-sm flex items-center justify-between'>

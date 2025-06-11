@@ -132,11 +132,11 @@ const SearchBar = () => {
             Register
           </Link>
           <Link
-            to="/profile"
+            to="/account"
             className='hover:text-blue-700'
             onClick={() => setIsAccountOpen(false)}
           >
-            Register
+            My Account
           </Link>
           <Link
             to="/myOrders"

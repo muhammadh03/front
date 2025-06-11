@@ -6,22 +6,26 @@ import { toast } from 'sonner';
 
 const ProductGrid = ({ product, addToCart }) => {
 
-    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    // const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const [disabledButtons, setDisabledButtons] = useState({});
 
-    const handleAddToCart = (e) => {
+    const handleAddToCart = (e, productId) => {
         e.preventDefault();
         e.stopPropagation();
 
         addToCart(product);
 
-        setIsButtonDisabled(true);
+        setDisabledButtons((prev) => ({
+            ...prev,
+            [productId]: true
+        }));
 
         setTimeout(() => {
             toast.success("Product added to cart", {
                 duration: 1000,
             });
 
-            setIsButtonDisabled(false);
+            setDisabledButtons(false);
         }, 500);
     }
 
@@ -91,11 +95,18 @@ const ProductGrid = ({ product, addToCart }) => {
                             {/* <button className='w-full text-xs md:text-sm font-semibold text-white bg-gray-300 hover:bg-blue-400 px-2 py-1 rounded-md'>
                                     Buy Now
                                 </button> */}
-                            <button
+                            {/* <button
                                 disabled={isButtonDisabled}
                                 onClick={handleAddToCart}
                                 className={`w-full text-xs md:text-sm font-semibold text-white bg-gray-700 px-2 py-1 cursor-pointer rounded-md ${isButtonDisabled ? "cursor-not-allowed opacity-50" : "hover:bg-gray-600"}`}>
                                 {isButtonDisabled ? "Adding..." : "Add to Cart"}
+                            </button> */}
+                            <button
+                                disabled={disabledButtons[product._id] === true}
+                                onClick={(e) => handleAddToCart(e, product._id, product)}
+                                className={`w-full text-xs md:text-sm font-semibold text-white bg-gray-700  px-2 py-1 cursor-pointer rounded-md ${disabledButtons[product._id] ? "cursor-not-allowed opacity-50" : "hover:bg-gray-600"}`}
+                            >
+                                {disabledButtons[product._id] === true ? 'Adding...' : 'Add to Cart'}
                             </button>
                         </div>
                     </div>
